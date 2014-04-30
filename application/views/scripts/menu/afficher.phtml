@@ -1,0 +1,54 @@
+<?php 
+echo "<html>\n";
+echo "<head>\n";
+echo "<link rel='stylesheet' type='text/css' href='".URL."/css/menu.css'>\n";
+echo "</head>\n\n";
+
+echo "<div id='entete'>\n";
+
+echo "<div>\n";
+//Logo Agilis
+echo "<img src='".URL."/images/agilis60.png' style='left:5px;' alt='Accueil Agilis' ";
+echo "onclick='menu.agilis();' onmouseover='this.src=\"".URL."/images/agilis60gris.png\"' onmouseout='this.src=\"".URL."/images/agilis60.png\"'>\n";
+
+//Menu développeur
+if($this->menu['developpeur']){
+	echo "<div style='position:absolute;left:90px' >\n";
+	echo "<img id='mn_ag2_developpeur' src='".URL."/images/atelier.png' style='position:relative;top:0px;left:10px;height:40px;cursor:pointer' value='0' alt='Atelier de développement'>\n";
+//	echo "<span id='mn_dev_application' class='dev' style='display:none;'>Application</span>\n";
+//	echo "<span id='mn_dev_menu' class='dev' style='display:none' onclick='menu.dev(\"menu\")'>Menu</span>\n";
+//	echo "<span id='mn_dev_pages' class='dev' style='display:none' onclick='menu.dev(\"pages\")'>Pages</span>\n";
+//	echo "<span id='mn_dev_cadres' class='dev' style='display:none' onclick='menu.dev(\"cadres\")'>Cadres</span>\n";	
+//	echo "<span id='mn_dev_formulaires' class='dev' style='display:none' onclick='menu.dev(\"formulaires\")'>Formulaires</span>\n";
+//	echo "<span id='mn_dev_onglets' class='dev' style='display:none' onclick='menu.dev(\"onglets\")'>Onglets</span>\n";		
+	echo "</div>\n";
+}//end if
+
+//Logo Orange
+echo "<img src='".URL."/images/orange.png' style='left:1100px;width:34px;cursor:default'";
+echo ">\n";
+echo "</div>\n\n";
+
+//Ligne de menu
+echo "<div id='ligne'>\n";
+echo "<span id='application' onClick='menu.pageAccueil()'>";
+echo $this->menu['application']['libelle'];
+echo "</span>\n";
+echo "<span id='menuLigne'>";
+echo "</span>\n";
+echo "<span id='identifiant'>";
+echo $this->menu['prenomNom'];
+echo "</span>\n";
+echo "</div>\n\n";
+
+echo "</div>\n\n";
+
+foreach($this->menu['variables'] as $variableNom => $variableValeur){
+	echo "<variable id='$variableNom' value=\"$variableValeur\" />\n";
+}//end foreach
+
+echo "\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Objet.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Regle.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Menu.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/scripts/menu.js'></script>\n";

@@ -1,0 +1,83 @@
+body {
+	margin: 0;
+	background-color: white;
+	font-family: Arial, sans-serif;
+}
+body a {text-decoration:none; color:#ffffff;}
+body a:hover {color: black;}
+
+#entete {
+	width: 1250px;
+}
+#entete img{
+	position:absolute;
+	top:1px;
+	cursor:pointer;
+}
+
+#ligne {
+    position:absolute;top:38px;
+	margin-left:0;
+	padding:3px;
+	height: 22 px;
+	width: 1250px;
+	background-color: #FF6600 ;
+}
+
+#application {
+	position:absolute;
+	left:5;
+	font-weight:bold;
+	font-size: 10pt;
+	color:white;	
+	cursor : default;	
+}
+
+#menuLigne {
+	position:absolute;
+	left:100;
+}
+
+#menuLigne span {
+	margin:2px;
+	font-weight:bold;
+	font-size: 10pt;
+	cursor : default;
+	padding-left:3px;
+	padding-right:3px;
+	background-color: silver ;	
+}
+
+#identifiant {
+	position:absolute;
+	left:1000;
+	font-size: 10pt;
+	color:white;	
+}
+
+.etat1 {
+	color: black;
+	background-color: silver ;
+	padding-left:3px;
+	padding-right:3px;
+}
+
+.etat0 {
+	background-color: silver ;	
+	color: white;
+	padding-left:3px;
+	padding-right:3px;
+}
+
+.dev {
+	position:relative;
+	top:5px;
+	font-size:12px;
+	color:gray;
+	background-color:#FFE0B2;
+	padding-top:1px;
+	padding-bottom:1px;
+	padding-left:5px;
+	padding-right:5px;
+	cursor:pointer;	
+}

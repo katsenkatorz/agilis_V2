@@ -1,0 +1,73 @@
+<script>
+
+var a0 = "111"+String.fromCharCode(13)+String.fromCharCode(10)+"222";
+
+x = ax(a0);
+document.write(x);
+
+
+	function ax(a){
+		var b = String(1+Math.floor(Math.random()*9))+String(1+Math.floor(Math.random()*9))+String(1+Math.floor(Math.random()*9));
+		var k = 0;
+		var h = "";
+		for(var i = 0 ; i < a.length ; i++){
+			d = a.charCodeAt(i);
+			h += (Number(d) < 16 ? '0' : '');
+			h += d.toString(16);
+			k += Number(d);
+		}//end for
+		k = String(k).substr(0,3);
+		h += k;
+		i = 0; j = 0 ;
+		var t = new Array();
+		while(h != ''){
+			r = h.substr(0,b.substr(i,1));
+			s = r.split('');
+			s.reverse();
+			t[j++] = s.join('');
+			h = h.substr(b.substr(i,1),h.length);
+			i = (i + 1) % 3;
+		}//end while
+		var x = '';
+		for(var j = 0 ; j < t.length ; j+=3){
+			x += (t[j+2] ? t[j+2] :'');
+			x += (t[j+1] ? t[j+1] :'');
+			x += t[j];
+		}//end for	
+		x = b + x;	
+		return x;
+	};//end function	
+
+	function xa(x){
+		var b = x.substr(0,3);
+		x = x.substr(3,x.length);
+		var t = new Array();
+		var i = 2;j = 0;
+		while(x != ''){
+			r = x.substr(0,b.substr(i,1));
+			s = r.split('');
+			s.reverse();
+			t[j++] = s.join('');
+			x = x.substr(b.substr(i,1),x.length);
+			i = (i == 0 ? 2 : i -1);
+		}//end while
+		var h = '';
+		for(var j = 0 ; j < t.length ; j += 3){
+			h += (t[j+2] ? t[j+2] : '');
+			h += (t[j+1] ? t[j+1] : '');
+			h += t[j];			
+		}//end for
+		var k = h.substr(h.length - 3,h.length);
+		h = h.substr(0,h.length - 3);
+		var a = '';
+		var l = 0 ;
+		for(i = 0 ; i < h.length ; i += 2){
+			d = parseInt(h.substr(i,2),16);
+			l += d;
+			a += String.fromCharCode(d);
+		}//end for
+		a = (k == String(l).substr(0,3) ? a : '');		
+		return a;
+	};//end function
+	
+</script>	

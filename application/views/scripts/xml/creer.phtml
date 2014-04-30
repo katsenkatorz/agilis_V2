@@ -1,0 +1,25 @@
+<?php
+header ('Content-type: text/xml');
+echo "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n";
+
+echo "<data>";
+if(is_array($this->resultat)){
+	echo "\n";
+	arrayToFileXml($this->resultat);
+}else{
+	echo $this->resultat;
+}//end if
+echo "</data>\n";
+
+function arrayToFileXml($tableau){
+	foreach ($tableau as $cle=>$item) {
+		if(is_numeric($cle)) $cle = "item".$cle;
+		echo "<".$cle.">";
+		if(is_array($item))	{
+			arrayToFileXml($item);
+		}else{
+			if ($item !== null) echo "<![CDATA[".$item."]]>";
+		}//end if
+		echo "</".$cle.">\n";		
+	}//end foreach
+}//end function

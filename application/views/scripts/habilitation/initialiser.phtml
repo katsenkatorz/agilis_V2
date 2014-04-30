@@ -1,0 +1,24 @@
+<?php
+// Suppression des Frames
+echo "<script type='text/javascript'>\n";
+echo "if (top.frames.length!=0) top.location=self.document.location;\n";
+echo "</script>\n";
+
+//Mise en place du jeu de frames
+echo $this->habilitation['frameset']."\n";
+
+for($i = 0 ; $i < count($this->habilitation['frames']) ; $i++){
+//	$name = substr($this->habilitation['frames'][$i]['zz_af_code'],7);
+	$name = $this->habilitation['frames'][$i]['zz_af_code'];
+	if(isset($this->habilitation['variables']['var_frame_code']) and $this->habilitation['variables']['var_frame_code'] == $name){
+		$variables = ax(arrayToXml($this->habilitation['variables']));
+	}else{
+		$pageCode = $this->habilitation['frames'][$i]['zz_af_page'];
+		$variables = ax('<var_page_code>'.$pageCode.'</var_page_code>');
+	}//end if	
+	$source = URL."/page/afficher?variables=".$variables;
+	$attributs = $this->habilitation['frames'][$i]['zz_af_attributs'];
+	echo "<frame name='$name' src='$source' $attributs>"."\n";
+}//end foreach
+
+echo "</frameset>\n";

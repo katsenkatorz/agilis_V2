@@ -1,0 +1,124 @@
+<?php
+$parents = array();
+foreach ($this->formulaire["controles"] as $controle) {
+
+	$controleCode = $controle["zz_gc_code"];
+	$controleCodeArray = split('_',$controleCode);
+	$ongletParent = $controleCodeArray[0].'_'.$controleCodeArray[1].'_'.$controleCodeArray[2];
+
+	if($ongletParent == $onglet['zz_gl_code']){
+		
+		//Fermeture éventuelle des fieldsets précédents
+		while(true){
+			$dernierParent = end($parents);
+			if(count($parents) < 1) break;			
+			if($controle["zz_gc_parent"] != $dernierParent[0]){
+				echo str_repeat(" ",3*(count($parents)-1));
+				echo "</".$dernierParent[1].">\n";
+				array_pop($parents);
+			}else{
+				break;
+			}//end if
+		}//end while
+		
+		//Modification éventuelle du TagName et du type
+		$tagName = substr($controle["zz_gc_code"],strrpos($controle["zz_gc_code"],"_") + 1);
+		$type = null;
+		switch($tagName){
+			case 'radio': $tagName = 'input'; $type = 'radio';break;
+			case 'checkbox': $tagName = 'input'; $type = 'checkbox';break;
+			case 'file' : $tagName = 'input'; $type = 'file';break;
+			case 'submit' : $tagName = 'input'; $type = 'submit';break;			
+		}//end switch
+		
+		if($tagName == "fieldset") echo "\n";
+		echo str_repeat(" ",3*count($parents));
+		echo "<".$tagName." ";
+		
+		//Id
+		echo "id=\"".$controle["zz_gc_code"]."\" ";
+		
+		//Style
+		$style = "";
+		if($controle["zz_gc_top"])      $style .= "top:".$controle["zz_gc_top"]."px;";
+		if($controle["zz_gc_left"])     $style .= "left:".$controle["zz_gc_left"]."px;";
+		if($controle["zz_gc_width"])    $style .= "width:".$controle["zz_gc_width"]."px;";
+		if($controle["zz_gc_height"])   $style .= "height:".$controle["zz_gc_height"]."px;";
+		if($controle["zz_gc_style"])    $style .= $controle["zz_gc_style"].";";
+		$format = $controle["zz_gc_format"];
+		if((substr($format,0,6)=="nombre")||(substr($format,0,5)=="euros")||(substr($format,0,11)=="pourcentage")||(substr($format,0,4)=="date")) 
+										$style .= "text-align:right;";
+		if($style != "") echo "style=\"".$style."\" ";
+		
+		//Attributs optionnels
+		if($controle["zz_gc_maxlength"])				echo "maxLength=\"".$controle["zz_gc_maxlength"]."\" ";
+		if($type)										echo "type=\"".$type."\" ";
+		if(!empty($controle["zz_gc_selectmultiple"])) 	echo "multiple=\""."multiple"."\" ";
+		if($controle["zz_gc_name"]) 					echo "name=\"".utf8_encode($controle["zz_gc_name"])."\" ";		
+		 		
+		//Attributs conditionnels
+		if($type == "radio") 	echo "value=\"".utf8_encode($controle["zz_gc_valeur"])."\" ";
+		if($type == "submit") 	echo "value=\"".utf8_encode($controle["zz_gc_valeur"])."\" ";
+		if($tagName == "img"){
+			echo "src=\"".utf8_encode($controle["zz_gc_valeur"])."\" ";
+			if($controle["zz_gc_defaut"]) echo "alt=".$controle["zz_gc_defaut"]."\" ";			
+		}//end if
+		if($tagName == "form") 	echo $controle["zz_gc_valeur"]." ";
+	
+		//EVENEMENTS
+		
+		//href
+		if($tagName == 'a')	echo "href=\"javascript:formulaire.controleEvenement('$controleCode','onclick')\" ";
+		//onblur
+		if(($tagName == 'input' and $type == '') or $tagName == 'textarea') echo "onblur=\"formulaire.controleEvenement(this.id,'onblur')\" ";
+		//onclic
+		if($type == 'radio' or $type == 'checkbox' or $tagName == 'button'  or $tagName == 'img' or $tagName == 'textarea') echo "onclick=\"formulaire.controleEvenement(this.id,'onclick')\" ";
+		//onchange
+		if($tagName == 'select') echo "onchange=\"formulaire.controleEvenement(this.id,'onchange')\" ";
+		//onkeyup
+		if(($tagName == 'input' and $type == '') or $tagName == 'textarea') echo "onkeyup=\"formulaire.controleEvenement(this.id,'onkeyup')\" ";
+		//onmousedown
+		if($tagName == 'select') echo "onmousedown=\"formulaire.controleEvenement(this.id,'onmousedown')\" ";
+		
+		//fermeture du TagName
+		echo ">";
+	
+		//a, button,  label, legend
+		if($tagName == 'a' OR $tagName == 'span' OR $tagName == 'p' OR $tagName == 'button' OR $tagName == 'label' OR $tagName == 'legend'){
+			echo $controle["zz_gc_valeur"];
+		}//end if
+		
+		//Fermeture du controle
+		if($tagName == "fieldset" OR $tagName == "form"){
+			echo "\n";
+		}else{	
+			echo "</".$tagName.">\n";
+		}//end if
+
+		//Ajout éventuel de l'aide contextuelle pour le controle
+		if($controle["zz_gc_aide"] != ''){
+			$left = $controle["zz_gc_left"] + $controle["zz_gc_width"] + 7;
+			echo "<img ";
+			echo "style=\"top:".$controle["zz_gc_top"]."px;left:".$left."px\" ";
+			echo "alt=\"".$controle["zz_gc_aide"]."\" ";
+			echo "src=\"".URL."/images/aide.gif\" ";
+			echo "/>\n";			
+		}//end if
+		
+		if($tagName == "fieldset" OR $tagName == "form"){
+			$parents[] = array($controle["zz_gc_code"],$tagName);
+		}//end if
+			
+	}//end if	
+}//end foreach
+
+//Fermeture éventuelle des fieldsets précédents
+while(true){
+	$dernierParent = end($parents);
+	if($dernierParent){
+		echo "</".$dernierParent[1].">\n\n";
+		array_pop($parents);
+	}else{
+		break;
+	}//end if
+}//end while

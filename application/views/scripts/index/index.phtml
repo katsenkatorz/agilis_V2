@@ -1,0 +1,17 @@
+<?php
+echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Strict//FR'>\n";
+echo "<html>\n";
+echo "<head>\n";
+echo "<title>Agilis</title>\n";
+echo "</head>\n";
+
+// Suppression des Frames
+echo "<script type='text/javascript'>\n";
+echo "if (top.frames.length!=0) top.location=self.document.location;\n";
+echo "</script>\n";
+
+//Découpage de l'écran en 2 Frames -->
+echo "<frameset cols='*' rows='70px,*' frameborder='NO' border='0' framespacing='0'>\n";
+echo "	<frame name='menu' src='".$this->index['source']."' SCROLLING=NO>\n";
+echo "	<frame name='page' NORESIZE>\n";
+echo "</frameset>\n";

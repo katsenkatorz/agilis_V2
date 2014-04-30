@@ -1,0 +1,47 @@
+<?php
+//Entete du document
+echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 strict//FR'>\n";
+echo "<html>\n";
+
+echo "<body>\n";
+
+echo "<link rel='stylesheet' type='text/css' href='".URL."/css/page.css'>\n\n";
+
+//Affichage des cadres de la fenêtre
+foreach($this->page['cadres'] as $cadre){
+	echo "<div style='top:".$cadre['zz_pc_top']."px;left:".$cadre['zz_pc_left']."px;'>\n";
+	echo "<iframe ";
+	echo "id='".$cadre['zz_pc_code']."' ";
+	echo "width='".$cadre['zz_pc_width']."px' ";
+	echo "height='".$cadre['zz_pc_height']."px' ";
+	if($cadre['zz_pc_masque'] == 1) echo "style='display:none' ";
+	if($cadre['zz_pc_bordure'] == 0) echo "frameborder='0' ";
+	if($cadre['zz_pc_defilement'] == 0) echo "scrolling='no' ";	
+	$typeSource = substr($cadre["zz_pc_source"],0,2);
+	switch($typeSource){
+		case "ca" : $controleur = "carte";break;
+		case "fo" : $controleur = "formulaire";break;
+		case "ht" : $controleur = "html";break;
+		case "li" : $controleur = "liste";break;
+		case "re" :	$controleur = "recherche";break;
+		default : $controleur = null;
+	}//end switch
+	if($controleur){
+		$variables  = arrayToXml($this->page['variables']);
+		$variables .= "<var_".$controleur."_code>".$cadre["zz_pc_source"]."</var_".$controleur."_code>";
+		$variables .= "<var_cadre_code>".$cadre["zz_pc_code"]."</var_cadre_code>";
+		echo "src='".URL."/".$controleur."/afficher?variables=".ax($variables)."' ";
+	}//end if
+	echo "></iframe>\n";
+	echo "</div>\n";
+}//end foreach
+
+echo "</body>\n";
+echo "</html>\n\n";
+
+foreach($this->page['variables'] as $variableNom => $variableValeur){
+	echo "<variable id='$variableNom' value=\"$variableValeur\" />\n";
+}//end foreach
+echo "\n";
+
+echo "<script type='text/javascript' src='".URL."/js/classes/Objet.js'></script>\n";

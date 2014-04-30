@@ -1,0 +1,222 @@
+<?php 
+//Chargement de la librairie PDF
+require_once 'fpdf.php';
+
+$orientation = ($this->etat["proprietes"]["zz_et_orientation"] == "paysage" ? "" : "P");
+$format = ($this->etat["proprietes"]["zz_et_format"] == "A4" ? "" : "A4");
+$policeFamille = ($this->etat["proprietes"]["zz_et_policefamille"] ? $this->etat["proprietes"]["zz_et_policefamille"]:"helvetica");
+$policeTaille = ($this->etat["proprietes"]["zz_et_policetaille"] ? $this->etat["proprietes"]["zz_et_policetaille"]:15);
+$margeHaut = ($this->etat["proprietes"]["zz_et_margehaut"] ? $this->etat["proprietes"]["zz_et_margehaut"]:25);
+$margeGauche = ($this->etat["proprietes"]["zz_et_margegauche"] ? $this->etat["proprietes"]["zz_et_margegauche"]:25);
+$margeDroite = ($this->etat["proprietes"]["zz_et_margedroite"] ? $this->etat["proprietes"]["zz_et_margedroite"]:15);
+$ligneHauteur = ($this->etat["proprietes"]["zz_et_lignehauteur"] ? $this->etat["proprietes"]["zz_et_lignehauteur"]:5);
+$enregistrementHauteur = $this->etat["proprietes"]["zz_et_enregistrementhauteur"];
+$enteteDocumentHauteur = $this->etat["proprietes"]["zz_et_entetedocumenthauteur"];
+$entetePageHauteur = $this->etat["proprietes"]["zz_et_entetepagehauteur"];
+$enregistrementseparateur = $this->etat["proprietes"]["zz_et_enregistrementseparateur"];
+header('Content-type:application/pdf');
+header('Content-Disposition:inline');
+
+$etatPdf = new FPDF();
+$etatPdf->SetFont($policeFamille,'',$policeTaille);
+$etatPdf->setMargins($margeHaut, $margeGauche, $margeDroite);
+$etatPdf->SetCompression(false);
+$etatPdf->AddPage($orientation);
+
+$iEnregistrement = 0;
+$entete = 0;
+$testDocumentHauteur = 0;
+$testEntetePage = 0;
+$hauteurEnteteDoc = 0;
+$getTopPosition = 0;
+$topMarge = 271;//  Hauteur réelle d'une page
+$countEnregistrement = 0;
+
+if($testDocumentHauteur == 0 && $enteteDocumentHauteur !=0){
+	$etatPdf->setY($enteteDocumentHauteur);
+	$hauteurEnteteDoc = $etatPdf->GetY();//$hauteurEnteteDoc prend la valeur de la hauteur de l'entête du doc°
+}else{
+	$hauteurEnteteDoc = 0;
+}//end if
+
+
+
+
+foreach ($this->etat["data"] as $data){
+	$nombreEnregistrement = count($this->etat["data"]);
+	
+	foreach ($this->etat["controles"] as $controle){
+		$nouvellePage = $controle["zz_ec_nouvellepage"];
+		$nouvelleLigne = $controle["zz_ec_nouvelleligne"];
+		$top = $controle["zz_ec_top"];
+		$left = $controle["zz_ec_left"];
+		$height = ($controle["zz_ec_height"]? $controle["zz_ec_height"] : $ligneHauteur);
+		$width = ($controle["zz_ec_width"]? $controle["zz_ec_width"] : 0);
+		$policeFamille = ($controle["zz_ec_policefamille"]? $controle["zz_ec_policefamille"]:$policeFamille);
+		$policeStyle = $controle["zz_ec_policestyle"];
+		$policeTaille = $controle["zz_ec_policetaille"];
+		$valeur = $controle["zz_ec_valeur"];
+		$type = $controle["zz_ec_type"];
+		$alignement = ($controle["zz_ec_alignement"]? $controle["zz_ec_alignement"] : "J");
+		$bordure = ($controle["zz_ec_bordure"] ? $controle["zz_ec_bordure"] : 0);
+		$remplissage = $controle["zz_ec_remplissage"];
+		$angle = $controle["zz_ec_angle"];
+		$impressionLogo = $controle["zz_ec_condition"];
+		$enteteDocument=$controle["zz_ec_entetedocument"];
+		$entetePage = $controle["zz_ec_entetepage"];
+		$remplissage = $controle["zz_ec_remplissage"];
+		
+		if ($enteteDocumentHauteur == null){$enteteDocument == null;$entetePage == null;$entetePageHauteur == 0;}		
+		if (($enteteDocument != null || $entetePage != null) && $entete == null){
+		
+			$testDocumentHauteur = $testDocumentHauteur+1;	
+			if ($top && $enteteDocument) $etatPdf->setY($top);
+			if ($enteteDocument == 0 && $entetePage != 0)// pour que l entête page démarre à partir de la hauteur de l'entête doc°
+			{	$top+=$enteteDocumentHauteur;
+				$etatPdf->setY($top);
+			}
+			if ($left) $etatPdf->setX($left);
+			if ($policeFamille) $etatPdf->SetFont($policeFamille,'','');
+			if ($policeStyle) $etatPdf->setFont($policeFamille,$policeStyle,'');
+			if ($policeTaille) $etatPdf->setFontSize($policeTaille);
+			if($type=="texte")
+			{
+				$etatPdf->Write($ligneHauteur,$valeur);
+			}
+			elseif($type=="paragraphe")
+			{
+				if($remplissage==null)$remplissage=255;
+				$etatPdf->SetFillColor($remplissage);
+				$etatPdf->MultiCell($width,$height,$valeur,$bordure,$alignement,true);
+			}
+			elseif($type=="image")
+			{
+				$etatPdf->Image(AGILIS_ROOT.'/public/images/'.$valeur,$left,$top,$width,$height);
+			}
+		}//end if 
+		
+
+		if ($enteteDocument == null && $entetePage==null)
+		{
+			$entete=0;$testEntetePage++;
+			$etatPdf->setY($top+$hauteurEnteteDoc+$entetePageHauteur);
+		}
+		
+		
+		
+		switch ($controle["zz_ec_condition"]){
+			case "impressionLogo":
+				$condition = $impressionLogo;
+				break;
+			default:
+				$condition = true;
+				break;
+		}//end switch
+		
+		if (($iEnregistrement ==0 && $testDocumentHauteur!=1)&&$entetePage!=1) $top+=$hauteurEnteteDoc+$entetePageHauteur;// ajouter entetePage au début de chaque page avec hauteurEntetePage+=hauteurEntetDoc et après la deuxième page $entetDocHauteur = 0;
+		if (($iEnregistrement ==0 && $testDocumentHauteur==1&& $enteteDocument ==null && $entetePage==null)) $top+=$hauteurEnteteDoc+$entetePageHauteur;
+		if($enregistrementHauteur && $iEnregistrement !=0) $top +=$hauteurEnteteDoc+(($enregistrementHauteur)*($iEnregistrement))+$entetePageHauteur;
+		
+		if(($top !== null) && ($nouvelleLigne == null || $nouvelleLigne == 0) && ($left == null || $left == 0)) $top = null;
+		if ($nouvelleLigne) $etatPdf->Ln($nouvelleLigne * $ligneHauteur);
+		if ($nouvellePage) $etatPdf->AddPage($orientation);
+	
+		if ($condition){
+			//Positionnement du curseur
+			if ($top) $etatPdf->setY($top);
+			if ($left) $etatPdf->setX($left);
+			
+			//Ajustement des polices
+			if ($policeFamille) $etatPdf->SetFont($policeFamille,'','');
+			if ($policeStyle) $etatPdf->setFont($policeFamille,$policeStyle,'');
+			if ($policeTaille) $etatPdf->setFontSize($policeTaille);
+
+			//Récupération de la valeur si Variable
+		
+			//si le premier caractère de $valeur = $ => effacer le $
+			if ($valeur != null && $valeur{0} == "$"){
+				$valeur= str_replace("$","","$valeur");
+				$valeur= $data["$valeur"];
+			}//end if
+			$valeur = str_replace("\\n","\n",$valeur);
+			//Type du controle
+			switch ($type){
+				
+				case "texte" :
+					
+					if (($angle==null)&&($enteteDocument==null && $entetePage==null)||(($enteteDocument == null && $entetePage!=null)&& $testEntetePage==1))
+					{
+						$etatPdf->Write($ligneHauteur,$valeur);
+					}
+					
+					elseif (($angle!=null)&&($enteteDocument==null && $entetePage==null)||(($enteteDocument == null && $entetePage!=null)&& $testEntetePage==1))
+					{
+						$etatPdf->Rotatedtext($left,$top,$valeur,$angle);
+					}break;
+					
+				case "paragraphe" :
+					if (($enteteDocument==null && $entetePage==null)||(($enteteDocument == null && $entetePage!=null)&& $testEntetePage==1)){
+						if($remplissage==null)$remplissage=250;
+						$etatPdf->SetFillColor($remplissage);
+						$etatPdf->MultiCell($width,$height,$valeur,$bordure,$alignement,true);
+					}break;
+					
+				case "image" :
+					if (($enteteDocument==null && $entetePage==null)||(($enteteDocument == null && $entetePage!=null)&& $testEntetePage==1)){
+					$etatPdf->Image(AGILIS_ROOT.'/public/images/'.$valeur,$left,$top,$width,$height);
+					}break;
+			}//end switch
+			
+		}//end if
+		
+		$varNuberPage=$etatPdf->PageNo();
+		if ($varNuberPage==1&&$entetePageHauteur!=null&&($entetePage!=null))
+		{
+			$etatPdf->SetLineWidth(0.5);
+			($etatPdf->Line(0,$entetePageHauteur+$enteteDocumentHauteur,1000,$entetePageHauteur+$enteteDocumentHauteur));
+		}
+		elseif($varNuberPage!=1&&$entetePageHauteur!=null&&($entetePage!=null)) 
+		{
+			$etatPdf->SetLineWidth(0.5);
+			($etatPdf->Line(0,$entetePageHauteur,1000,$entetePageHauteur));// tracr une ligne a la fin du Hauteur de l'entête de chaque document(deuwxieme page jesqu'à la fin du doc)
+		}
+		$etatPdf->SetLineWidth(0.2);// valeur par défaut de l'épaisseur du ligne = 0.2
+		$varTop = $etatPdf->GetY();
+				
+	}//end foreach
+	
+		$topEnregistrementFixe=(($enteteDocumentHauteur+$entetePageHauteur)+($enregistrementHauteur*$iEnregistrement));
+		$testEnregistrementHauteur=$enregistrementHauteur*$iEnregistrement;
+		$entete=2;//on fixe entete = 2 pour  que ce qui se trouve dans l'EnteteDocument ne s'affiche qu'une seul fois
+		$iEnregistrement++;	
+		$countEnregistrement++;	
+		
+		if ($type=='texte'&&$testEnregistrementHauteur!=0&& $enregistrementseparateur!=null)
+		{
+			if ($varNuberPage!=1)$topEnregistrementFixe=$topEnregistrementFixe-$enteteDocumentHauteur;
+			$etatPdf->Line(0,$topEnregistrementFixe,1000,$topEnregistrementFixe);// ligne au dessous de la 1ere enregistrement
+					
+		}//end if 
+		elseif($type=='paragraphe'&& $testEnregistrementHauteur!=0 && $enregistrementseparateur!=null)
+		{
+			if ($varNuberPage!=1)$topEnregistrementFixe=$topEnregistrementFixe-$enteteDocumentHauteur;
+			$etatPdf->Line(0,$topEnregistrementFixe,1000,$topEnregistrementFixe);
+		}// end elseif
+						
+		$getTopPosition = $etatPdf->GetY();//position actuelle du curseur	
+		$testResteHauteur=$etatPdf->GetY();
+		
+ 	if($enregistrementHauteur > $topMarge-$getTopPosition || ($enregistrementHauteur==0)&&    ($countEnregistrement<$nombreEnregistrement ))
+			{
+		$iEnregistrement = 0;
+		if ($nouvelleLigne) $etatPdf->Ln($nouvelleLigne * $ligneHauteur);
+		$hauteurEnteteDoc=0;
+		$etatPdf->AddPage($orientation);
+		$etatPdf->PageNo();
+		$testEntetePage=1;// à chaque debut d'une nouvelle page on initialise $testEntetePage= 1 pour n'afficher l'entêtePage page q'une seule fois au début de chaque Page
+		
+	}//end if
+}//end foreach
+
+$etatPdf->Output();
+?>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema elementFormDefault="qualified"
+  targetNamespace="urn:15T.orange.com/wsdl/oras/v0/types"
+  xmlns:tns="urn:15T.orange.com/wsdl/oras/v0/types"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <!-- TODO : 
+    Revoir les structures de ce service Web afin de mieux mettre en évidence
+    les éléments en entrée et en sortie : factoriser les lignes adresses dans
+    une structure adresse, créer une structure pour le message en entrée, une
+    autre pour le message en sortie, ...
+    Cela ne pourra être fait qu'en adéquation avec tous les clients recensés
+    du service Web ValidationAdresse, car cela sous-entend une modification des
+    clients d'interrogation du service.
+    
+    Commenter tous les types et éléments.
+  -->
+
+  <complexType name="Authentification">
+    <sequence>
+      <element name="ident_appli" nillable="true" type="xsd:string" />
+      <element name="password" nillable="true" type="xsd:string" />
+    </sequence>
+  </complexType>
+
+  <complexType name="Parametres">
+    <sequence>
+      <element name="adressespeciale" nillable="true" type="xsd:boolean" />
+      <element name="filtrage_cedex" nillable="true" type="xsd:boolean" />
+      <element name="geocodage" nillable="true" type="xsd:boolean" />
+      <element name="interactif" nillable="true" type="xsd:boolean" />
+      <element name="joker" nillable="true" type="xsd:boolean" />
+      <element name="list_Resolve" nillable="true" type="xsd:boolean" />
+      <element name="list_dedoubl_voie" nillable="true" type="xsd:boolean" />
+      <element name="longueur_sortie" nillable="true" type="xsd:int" />
+      <element name="par_case" nillable="true" type="xsd:boolean" />
+      <element name="sel_list_max_adresse" nillable="true" type="xsd:int" />
+      <element name="sel_list_max_localite" nillable="true" type="xsd:int" />
+      <element name="sel_list_max_voie" nillable="true" type="xsd:int" />
+      <element name="timeout" nillable="true" type="xsd:int" />
+      <element name="type_appel" nillable="true" type="xsd:string" />
+      <xsd:element name="rivoli" nillable="true" type="xsd:boolean"
+        minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>
+            Indicateur permettant d'obtenir pour une adresse ou un code hexavia
+            donné en entrée le code Rivoli correspondant, si trouvé. Ce
+            paramètre n'a de sens que lors d'une RNVP ( voir élément
+            "type_appel").
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </sequence>
+  </complexType>
+
+  <complexType name="Control">
+    <sequence>
+      <element name="code_erreur" nillable="true" type="xsd:int" />
+      <element name="code_ret" nillable="true" type="xsd:string" />
+      <element name="hexacle_numero" nillable="true" type="xsd:string" />
+      <element name="hexacle_voie" nillable="true" type="xsd:string" />
+      <element name="hexavia" nillable="true" type="xsd:string" />
+      <element name="insee" nillable="true" type="xsd:string" />
+      <element name="libelle_affichage" nillable="true" type="xsd:string" />
+      <element name="libelle_erreur" nillable="true" type="xsd:string" />
+      <element name="nb_champs" nillable="true" type="xsd:int" />
+      <element name="statut_oras" nillable="true" type="xsd:string" />
+    </sequence>
+  </complexType>
+
+  <complexType name="Geolocalisation">
+    <sequence>
+      <element name="geo_niveau_validite" nillable="true" type="xsd:string" />
+      <element name="geocodage_x" nillable="true" type="xsd:string" />
+      <element name="geocodage_y" nillable="true" type="xsd:string" />
+    </sequence>
+  </complexType>
+
+  <complexType name="Adresse">
+    <xsd:annotation>
+      <xsd:documentation>
+        Structure utilisée en entrée et en sortie de la méthode de service
+        doRNVP.
+      </xsd:documentation>
+    </xsd:annotation>
+    <sequence>
+      <element name="codePostal" nillable="true" type="xsd:string" />
+      <element name="control" nillable="true" type="tns:Control" />
+      <element name="geolocalisation" nillable="true"
+        type="tns:Geolocalisation" />
+      <element name="line1" nillable="true" type="xsd:string" />
+      <element name="line2" nillable="true" type="xsd:string" />
+      <element name="line3" nillable="true" type="xsd:string" />
+      <element name="line4" nillable="true" type="xsd:string" />
+      <element name="line5" nillable="true" type="xsd:string" />
+      <element name="line6" nillable="true" type="xsd:string" />
+      <element name="local_achemi" nillable="true" type="xsd:string" />
+      <element name="localite" nillable="true" type="xsd:string" />
+      <element name="numero_voie" nillable="true" type="xsd:string" />
+      <element name="servicespecial" nillable="true" type="xsd:string" />
+      <element name="voie" nillable="true" type="xsd:string" />
+      <xsd:element name="codeHexavia" type="xsd:string" minOccurs="0"
+        maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>
+            Code Hexavia fourni en entrée pour obtenir en retour le code Rivoli.
+            si ce code est renseigné, il n'y a pas besoin de renseigner une
+            adresse (ligne1 à ligne6). Ce champ n'est utilisé que lors d'une
+            recherche de code Rivoli par le code Hexavia.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="codeRivoli" type="xsd:string" minOccurs="0"
+        maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>
+            Code rivoli retrouvé à l'aide du code Hexavia ou de l'adresse fourni
+            en entrée du service.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </sequence>
+  </complexType>
+</schema>

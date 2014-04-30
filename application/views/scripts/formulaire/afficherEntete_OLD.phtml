@@ -1,0 +1,105 @@
+<?php
+//Entête fixe
+$enteteFixeHauteur = ($this->formulaire['proprietes']["zz_fo_barreicones"] == '1' ? '45' : '20');
+echo "<div id='enteteFixe' style='height:".$enteteFixeHauteur."px'>\n\n";
+
+//Affichage du titre du formulaire
+echo "<div id='formulaireNom'>".variablesToValeurs($this->formulaire['proprietes']["zz_fo_libelle"],$this->formulaire['variables'])."</div>\n";
+
+echo "<input id='synchronisation_cadre' type='hidden'/>\n\n";
+
+//Affichage conditionnel de la barre d'icones
+if($this->formulaire['proprietes']["zz_fo_barreicones"]){
+	echo "<div id='icones'>\n";
+	
+	//Valider
+	echo "<img id='icone_valider' ";
+	echo "style='display:none;margin-top:25px;margin-left:5px;' ";
+	echo "alt='Valider' ";
+	echo "src='".URL."/images/icone_valider.png' ";
+	echo "onClick=\"formulaire.formulaireValider()\" ";
+	echo "/>\n";
+	
+	//Enregistrer
+	echo "<img id='icone_enregistrer' ";
+	echo "style='display:none;margin-top:25px;margin-left:5px;' ";
+	echo "alt='Enregistrer' ";
+	echo "src='".URL."/images/icone_enregistrer0.png' ";
+	echo "onClick=\"formulaire.formulaireEnregistrer()\" ";
+	echo "/>\n";
+	
+	//Ajouter
+	echo "<img id='icone_ajouter' ";
+	echo "style='display:none;margin-top:25px;margin-left:30px;' ";
+	echo "alt='Ajouter' ";
+	echo "src='".URL."/images/icone_ajouter.png' ";
+	echo "onClick=\"formulaire.formulaireAjouter()\" ";
+	echo "/>\n";
+	
+	//Supprimer
+	echo "<img id='icone_supprimer' ";
+	echo "style='display:none;margin-top:25px;margin-left:55px;' ";
+	echo "alt='Supprimer' ";
+	echo "src='".URL."/images/icone_supprimer.png' ";
+	echo "onClick=\"formulaire.formulaireSupprimer()\" ";
+	echo "/>\n";
+	
+	//Sélecteur d'enregistrements
+	echo "<div id='icone_selecteur' ";
+	echo "style='display:none;margin-top:25px;margin-left:90px;' ";
+	echo ">\n";
+	
+		echo "<img id='selecteur_premier' ";
+		echo "style='margin-left:10px;' ";
+		echo "alt='Premier' ";
+		echo "src='".URL."/images/selecteur_premier1.png' ";
+		echo "onClick=\"formulaire.iconeSelecteur('premier')\" ";
+		echo "/>\n";
+		
+		echo "<img id='selecteur_precedent' ";
+		echo "style='margin-left:25px;' ";
+		echo "alt='Précédent' ";
+		echo "src='".URL."/images/selecteur_precedent1.png' ";
+		echo "onClick=\"formulaire.iconeSelecteur('precedent')\" ";
+		echo "/>\n";
+		
+		echo "<input id='selecteur' value='".$this->formulaire['cle']."'";
+		echo "/>\n";
+		
+		echo "<img  id='selecteur_aller' ";
+		echo "style='margin-left:165px;' ";
+		echo "alt='Aller' ";
+		echo "src='".URL."/images/selecteur_aller1.png' ";
+		echo "onClick=\"formulaire.iconeSelecteur('aller')\" ";
+		echo "/>\n";
+		
+		echo "<img id='selecteur_suivant' ";
+		echo "style='margin-left:195px;' ";
+		echo "alt='Suivant' ";
+		echo "src='".URL."/images/selecteur_suivant1.png' ";
+		echo "onClick=\"formulaire.iconeSelecteur('suivant')\" ";
+		echo "/>\n";
+		
+		echo "<img id='selecteur_dernier' ";
+		echo "style='margin-left:210px;' ";
+		echo "alt='Dernier' ";
+		echo "src='".URL."/images/selecteur_dernier1.png' ";
+		echo "onClick=\"formulaire.iconeSelecteur('dernier')\" ";
+		echo "/>\n";
+	
+	echo "</div>\n\n";
+	
+	//Affichage des onglets
+	echo "<div id='icone_onglets' style='display:none'>\n";
+	echo "<img ";
+	echo "style='margin-top:25px;margin-left:350px;' ";
+	echo "alt='Fermer/Ouvrir les onglets' ";
+	echo "src='".URL."/images/icone_onglets.png' ";
+	echo "onClick=\"formulaire.iconeOnglets()\" ";
+	echo "/>\n";
+	echo "</div>\n";
+	
+	echo "</div>\n";
+}//end if
+
+echo "</div>\n\n";

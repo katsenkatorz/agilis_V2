@@ -1,0 +1,138 @@
+<script>this.url = "//" + location.host + "/agilis_V2/public";</script>
+	
+<fieldset><legend>Ajax</legend>
+	controleur : <input name="ajaxControleur" value="controle" style="width:100">
+	action : <input name="ajaxAction" value="selectInitialiser" style="width:100">
+	parametres : <input name="ajaxParametres" value="controleCode=FO-SI-001-011&variablesSql=UHGO6402" style="width:300">
+	<button onclick="F_ajaxXml();">Xml</button>
+	<script>
+		function F_ajaxXml(){
+			var controleur = ajaxControleur.value;
+			var action = ajaxAction.value;
+			var parametres = ajaxParametres.value;
+			var objet = new Objet();
+			alert(objet.ajax(controleur,action,parametres).xml);
+		}//end function
+	</script>
+</fieldset>
+
+<fieldset><legend>Requête</legend>
+	Code : <input name="requeteCode" value="RH-CO-001" style="width:100">
+	Variables : <input name="requeteVariables" value="MFT" style="width:300">
+	<button onclick="F_requeteSql();">SQL</button>
+	<button onclick="F_requeteVariables();">Variables</button>		
+	<button onclick="F_requeteResultat();">Exécuter</button>
+	<script>
+		function F_requeteSql(){
+			var controleur = "requete";
+			var action = "sql";
+			var parametres = "requeteCode="+requeteCode.value;
+			var objet = new Objet();			
+			alert(objet.ajax(controleur,action,parametres).xml);
+		}//end function
+		function F_requeteVariables(){
+			var controleur = "requete";
+			var action = "variables";
+			var parametres = "requeteCode="+requeteCode.value+"&requeteVariables="+requeteVariables.value
+			var objet = new Objet();			
+			alert(objet.ajax(controleur,action,parametres).xml);
+		}//end function
+		function F_requeteResultat(){
+			var controleur = "requete";
+			var action = "executer";
+			var parametres = "requeteCode="+requeteCode.value+"&requeteVariables="+requeteVariables.value
+			var objet = new Objet();			
+			alert(objet.ajax(controleur,action,parametres).xml);
+		}//end function
+	</script>
+</fieldset>
+
+<fieldset><legend>Formulaire</legend>
+	<form name="formFormulaire">
+		code : <input name="formulaireCode" value="FO-SI-001" style="width:100">
+		<button onclick="F_formulaireProprietes();">Propriétés</button>	
+		cle : <input name="formulaireCle" value="" style="width:100">
+		<button onclick="F_formulaireAfficher();">Afficher</button>	
+		variables : <input name="formulaireVariables" value="UHGO6402" style="width:100">
+		<button onclick="F_formulaireAfficher();">Afficher</button>				
+	</form>
+	<script>
+		function F_formulaireProprietes(){
+			var controleur = "formulaire";
+			var action = "proprietes";
+			var parametres = "formulaireCode="+formFormulaire.formulaireCode.value+"&formulaireCle="+formFormulaire.formulaireCle.value;
+			var objet = new Objet();			
+			alert(objet.ajax(controleur,action,parametres).xml);
+		}//end function
+
+		function F_formulaireAfficher(){
+			var controleur = "formulaire";
+			var action = "afficher";
+			var form  = formFormulaire;	
+			var objet = new Objet();			
+			objet.post(controleur,action,form);
+		}//end function
+	</script>
+</fieldset>
+
+<fieldset><legend>Liste</legend>
+		code : <input name="listeCode" value="LI-SI-001" style="width:100">
+		variablesSql : <input name="listeVariables"  style="width:100">
+		criteres : <input name="listeCriteres"  style="width:100">		
+		<button onclick="F_listeAfficher();">Afficher</button>				
+	<script>
+		function F_listeAfficher(){
+			var controleur = "liste";
+			var action = "afficher";
+			var parametres = "code=" + listeCode.value;
+			
+			location.replace(this.url + "/" + controleur + "/" + action + "?" + parametres);
+		}//end function
+	</script>
+</fieldset>
+
+<fieldset><legend>Recherche</legend>
+	<form name="formRecherche">
+		code : <input name="rechercheCode" value="RE-SI-001" style="width:100">
+		<button onclick="F_rechercheAfficher();">Afficher</button>				
+	</form>
+	<script>
+		function F_rechercheAfficher(){
+			var controleur = "recherche";
+			var action = "afficher";
+			var form  = formRecherche;
+			var objet = new Objet();			
+			objet.post(controleur,action,form);
+		}//end function
+	</script>
+</fieldset>
+
+<fieldset><legend>Ldap</legend>
+	identifiant : <input name="ldapIdentifiant" value="UHGO6402"></input>
+	<button onclick="F_ldap();">Ldap</button>
+	<script>
+		function F_ldap(){
+			var controleur = "ldap";
+			var action = "individu";
+			var parametres = "identifiant=" + ldapIdentifiant.value;
+			var objet = new Objet();			
+			alert(objet.ajax(controleur,action,parametres).xml);
+		}//end function
+	</script>
+</fieldset>
+
+<fieldset><legend>Mail</legend>
+	<form name="formMail">
+		mail : <input name="identifiant" value="UHGO6402"></input>
+		<button type="submit">Mail</button>
+	</form>	
+	<script>
+		function F_mail(){
+			var controleur = "mail";
+			var action = "envoyer";
+			var form  = formMail;			
+			var objet = new Objet();			
+			objet.post(controleur,action,form);
+		}//end function
+	</script>
+</fieldset>

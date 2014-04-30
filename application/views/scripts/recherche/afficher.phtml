@@ -1,0 +1,112 @@
+<?php
+//Entete du document
+echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>\n";
+echo "<html>\n";
+echo "<head>\n";
+
+echo "<title>".$this->recherche["proprietes"]["zz_re_code"]."</title>\n";
+echo "</head>\n\n";
+
+//echo "<script type='text/javascript' src='".URL."/js/classes/Objet.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/scripts/global.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Recherche.js'></script>\n";
+
+//Corps du document
+echo "<body>\n\n";
+echo "<link rel='stylesheet' type='text/css' href='".URL."/css/liste.css'>\n\n";
+
+//ENTETE DE LA LISTE
+echo "<div id='enteteFixe'>\n";
+
+//Titre
+echo "<span class='titre'>".$this->recherche["proprietes"]["zz_re_libelle"]."</span>\n";
+
+//Affichage du nombre de lignes
+echo "<div>\n";
+echo "<span style='font-size:9pt;font-weight:bold'>".count($this->recherche["data"])."</span>\n";
+echo "<span style='font-size:8pt'>&nbsp;lignes trouvées</span>\n";
+echo "</div>\n";
+
+//initialisation du top des données
+$topData = 100;
+
+//Affichage éventuel des variables 
+echo "<span style='font-size:9pt'>";
+foreach($this->recherche["variables"] as $variable => $valeur){
+	if(substr($variable,0,2) == '[['){
+		echo trim($variable,'[]').' = '.$valeur.'</br>';
+		$topData += 12;
+	}//end if
+}//end foreach
+echo "</span>\n";
+
+//ENTETE DES COLONNES ---------------------------------------------------------------------------------------------------
+echo "<table id='TableEntete' style='table-layout:fixed;background-color:white' cellpadding='2px' cellspacing='2px'>\n";
+echo "<tr>\n";
+
+//Taille des colonnes
+foreach($this->recherche['colonnes'] as $colonne) {
+	echo "<td style='width:".$colonne['taille']."px'></td>\n";
+}//end foreach
+echo "</tr>\n";
+echo "\n";
+
+//Entete
+echo "<tr class='entete'>\n";
+foreach($this->recherche['colonnes'] as $colonne){
+	echo "<td>";
+	echo $colonne['libelle'];
+	echo "</td>\n";	
+}//end foreach
+
+echo "</table>\n";
+echo "</div>";
+
+//DONNEES DE LA LISTE -----------------------------------------------------------------------------------
+echo "<div id='contenu' style='margin-top:".$topData."'>\n";
+echo "<table id='tableData' style='table-layout:fixed;font-size:9pt;' cellpadding='2px' cellspacing='2px'>\n";
+
+//Taille des colonnes
+foreach($this->recherche['colonnes'] as $colonne) {
+	echo "<td style='width:".$colonne['taille']."px'></td>\n";
+}//end foreach
+echo "</tr>\n";
+echo "\n";
+
+$iLigne = 0;
+foreach($this->recherche['data'] as $ligne) {
+	echo "<tr ";
+	if(($iLigne++ %2) == 0){
+		echo "style='background-color:".COULEUR_S3."';";
+	}else{
+		echo "style='background-color:".COULEUR_P1."';";
+	}//end if
+	echo ">\n";
+	$iColonne = 0;
+	foreach($ligne as $colonne){
+		echo "<td";
+		if(stripos("nombre,euros,pourcentage",$this->recherche['colonnes'][$iColonne]['type'])!== false) echo " style='text-align:right'";
+		echo ">";
+		
+		//Si lien vers une page
+		$colonneLibelle = $this->recherche['colonnes'][$iColonne]['libelle'];
+		$page = $this->recherche['champs'][$colonneLibelle]['page'];
+		if($page) echo "<a class='lien' href='javascript:recherche.pageAfficher(\"$page\",\"$colonne\")'>";
+		
+		if($this->recherche['colonnes'][$iColonne]['type'] == 'date' && $colonne != ''){
+			$colonneArray = split('-',$colonne);
+			$colonne = $colonneArray[2].'/'.$colonneArray[1].'/'.$colonneArray[0];			
+		}//end if
+		echo $colonne;
+
+		if($page) echo "</a>\n";
+		
+		echo "</td>\n";
+		$iColonne++;
+	}//end foreach
+	echo "</tr>\n";
+}//end foreach
+echo "</table>\n";
+
+echo "\n";
+echo "<script type='text/javascript' src='".URL."/js/scripts/recherche.js'></script>\n";

@@ -1,0 +1,106 @@
+<?php
+//include_once "../../../../library/agilis/global.php";
+
+//Entete du document
+echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 strict//FR'>\n";
+echo "<html>\n";
+echo "<head>\n";
+echo "<title>".$this->recherche['code']."</title>\n";
+echo "</head>\n\n";
+
+//Corps du document
+echo "<body>\n";
+echo "<link rel='stylesheet' type='text/css' href='".URL."/css/liste.css'>\n";
+echo "<script type='text/javascript' src='".URL."/js/objet.js'></script>\n";
+echo "\n";
+
+//Titre
+echo "<span style='font-size:14pt'>".$this->recherche["categorie"]."</span><br/>\n";
+echo "<span style='font-size:12pt'>".$this->recherche["liste"]."</span><br/>\n";
+echo "<span style='font-size:10pt'>".$this->recherche["recherche"]."</span><br/>\n";
+echo "<br/>\n";
+
+//Colonnes à afficher
+echo "<div style='position:absolute;top:100px;left:0px'>";
+echo "<span style='width:250px;font-size:11pt;color:white;background-color:#FF6600;padding-left:5px'>Colonnes à afficher</span><br/>\n";
+echo "<select name='colonnes' style='width:250px' multiple>\n";
+foreach($this->recherche['colonnes'] as $colonne){
+	echo "<option value='".$colonne['code']."'";
+	if($colonne['selected']) echo " selected='selected' ";
+	echo ">";
+	echo $colonne['libelle'];
+	echo "</option>\n";
+}//end foreach
+echo "</select>\n";
+echo "</div>";
+
+//Criteres de sélection
+echo "<div style='position:absolute;top:100px;left:260px'>";
+echo "<span style='width:740px;font-size:11pt;color:white;background-color:#FF6600;padding-left:5px'>Critères de sélection</span><br/>\n";
+for($i=0 ; $i <25 ; $i++){
+	echo "<div";
+	if(empty($this->recherche["criteres"][$i]["code"])) echo " style='display:none'";
+	echo ">\n";
+	echo "<input name='ligneCritere' type='checkbox'/>\n";
+	
+	$ouvrirArray = Array("","(","((","(((","((((","(((((");
+	$ouvrirValeur = (empty($this->recherche["criteres"][$i]["ouvrir"]) ? "" : $this->recherche["criteres"][$i]["ouvrir"]);
+	echo "<select name='ouvrir'>";
+	foreach($ouvrirArray as $ouvrir){
+		echo "<option value='".$ouvrir."'";
+		if($ouvrirValeur == $ouvrir) echo " selected='selected'";
+		echo ">".$ouvrir."</option>";
+	}//end foreach
+	echo "</select>\n";
+
+	$champValeur = (empty($this->recherche["criteres"][$i]["champ"]) ? "" : $this->recherche["criteres"][$i]["champ"]);
+	echo "<select name='alias' style='width:250px'>\n";
+	echo "<option value=''></option>";
+	foreach($this->recherche['colonnes'] as $colonne){
+		echo "<option value='".$colonne['code']."'";
+		if($champValeur == $colonne['code']) echo " selected='selected' ";		
+		echo ">";
+		echo $colonne['libelle'];
+		echo "</option>\n";
+	}//end foreach
+	echo "</select>\n";
+
+	$operateurArray = Array(""=>"","="=>"égal","<>"=>"différent","<"=>"inférieur","<="=>"inf. ou égal",">"=>"supérieur",">="=>"sup. ou égal","a%"=>"débute par","%a"=>"finit par","%a%"=>"contient");
+	$operateurValeur = (empty($this->recherche["criteres"][$i]["operateur"]) ? "" : $this->recherche["criteres"][$i]["operateur"]);
+	echo "<select name='operateur'>";
+	foreach($operateurArray as $operateurCode => $operateurLibelle){
+		echo "<option value='".$operateurCode."'";
+		if($operateurValeur == $operateurCode) echo " selected='selected'";
+		echo ">".$operateurLibelle."</option>";
+	}//end foreach
+	echo "</select>\n";
+
+	$valeurValeur = (empty($this->recherche["criteres"][$i]["valeur"]) ? "" : $this->recherche["criteres"][$i]["valeur"]);
+	echo "<input name='valeur' style='width:200px' value='".$valeurValeur."'/>\n";
+	
+	$fermerArray = Array("",")","))",")))","))))",")))))");
+	$fermerValeur = (empty($this->recherche["criteres"][$i]["fermer"]) ? "" : $this->recherche["criteres"][$i]["fermer"]);
+	echo "<select name='fermer'>";
+	foreach($fermerArray as $fermer){
+		echo "<option value='".$fermer."'";
+		if($fermerValeur == $fermer) echo " selected='selected'";
+		echo ">".$fermer."</option>";
+	}//end foreach
+	echo "</select>\n";
+
+	$logiqueArray = Array("","et","ou");
+	$logiqueValeur = (empty($this->recherche["criteres"][$i]["logique"]) ? "" : $this->recherche["criteres"][$i]["logique"]);
+	echo "<select name='logique'>";
+	foreach($logiqueArray as $logique){
+		echo "<option value='".$logique."'";
+		if($logiqueValeur == $logique) echo " selected='selected'";
+		echo ">".$logique."</option>";
+	}//end foreach
+	echo "</select>\n";	
+	
+	echo "</div>\n";
+	echo "<br/>\n";
+}//end for	
+echo "</div>";
+
+?>

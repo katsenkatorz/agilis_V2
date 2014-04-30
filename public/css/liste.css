@@ -1,0 +1,78 @@
+* {
+	font-family: Arial;
+	margin-left:2px;
+}
+
+#enteteFixe{
+	position:absolute;
+	top:0px;
+	background-color:white;
+}
+
+#table {table-layout:fixed} 
+ 
+.titre {
+	font-weight: bold;
+	font-size: 14pt;
+}
+
+.date {padding-left:10px;font-size:8pt}
+
+.criteres {font-size:8pt}
+
+.entete {
+	font-weight: bold;
+	background-color:rgb(255, 102, 0);
+	border-color:rgb(255, 102, 0);
+	font-size: 10pt;
+	line-height: 20px;
+	text-align:center;
+	white-space:nowrap	
+}
+
+.lien {
+	text-decoration: underline;
+	cursor : pointer;	
+}
+
+.rupture0 {
+	background-color:black;
+	margin-left:4px;
+	margin-top:10px;
+	margin-bottom:1px;
+}
+.rupture0 a{
+	color:silver;
+	font-weight: bold;
+}
+.rupture1 {
+	margin-top:0px;
+}
+.rupture1 a{
+	margin-top:5px;
+	font-weight: bold;
+	padding-right:100px;	
+	background-color:gray;
+	color:white;
+}
+.rupture2 a{
+	font-weight: bold;
+}
+
+.totalRupture1 {
+	font-weight: bold;
+	text-align:right;	
+	background-color:white;
+}
+
+.totalRupture2 {
+	font-weight: bold;
+	text-align:right;
+	color:white;
+	background-color:gray;
+}
+
+.total {
+	font-weight: bold;
+	text-align:right;
+}

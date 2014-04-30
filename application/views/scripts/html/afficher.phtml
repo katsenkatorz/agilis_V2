@@ -1,0 +1,26 @@
+<?php
+//Entete du document
+echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>\n";
+echo "<html>\n";
+echo "<head>\n";
+echo "</head>\n";
+
+//echo "<script type='text/javascript' src='".URL."/js/classes/Objet.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/scripts/global.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Regle.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Html.js'></script>\n";
+
+echo "<link rel='stylesheet' type='text/css' href='/agilis_V2/public/css/html.css'>\n";
+
+echo $this->html['libelle']."\n\n";
+
+echo "</html>\n";
+
+
+echo "\n";
+foreach($this->html['variables'] as $variableNom => $variableValeur){
+	echo "<variable id='$variableNom' value=\"$variableValeur\" />\n";
+}//end foreach
+echo "\n";
+
+echo "<script type='text/javascript' src='".URL."/js/scripts/html.js'></script>\n";

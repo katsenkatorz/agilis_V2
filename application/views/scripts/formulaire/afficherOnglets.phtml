@@ -1,0 +1,85 @@
+<?php
+echo "<div id='contenu' style='margin-top:".$enteteFixeHauteur."px'>\n\n";
+
+$blocPrecedent = 0;
+foreach($this->formulaire['onglets'] as $onglet){
+
+	if($onglet['zz_fg_bloc'] != $blocPrecedent){
+		$blocPrecedent = $onglet['zz_fg_bloc'];
+		$legendePosition = 5;
+		$iOnglet = 0;
+		if($onglet['zz_fg_bloc'] != 1) echo "</div>\n\n";
+		echo "<div ";
+		echo "class='bloc' ";
+		echo "style='";
+		echo "height:".$onglet["zz_gl_height"]."px;";
+		if($onglet["zz_fg_style"]) echo $onglet['zz_fg_style'];
+		echo "'";
+		echo ">\n";
+	}//end if
+		
+	if($onglet["zz_fg_legendetaille"]){
+	
+		echo "<div ";
+		echo "id='".$onglet["zz_gl_code"]."' ";
+		echo "class='onglet' ";
+		if($onglet["zz_gl_style"]) echo "style='".$onglet["zz_gl_style"]."' ";
+		echo ">\n";
+		
+		echo "<onglet value='".$onglet["zz_gl_code"]."'/>\n";	
+					
+		echo "<span ";
+		echo "id='legende_".$onglet["zz_gl_code"]."' ";	
+		echo "class='ongletLegende' ";
+		echo "style='";
+		echo "top:0px;";
+//		echo "left:". (5 + ($iOnglet * (5 + $onglet["zz_fg_legendetaille"])))."px;";
+		echo "left:". ($legendePosition)."px;";
+		echo "width:".$onglet["zz_fg_legendetaille"]."px;";
+		if(! stripos($onglet["zz_gl_style"],'display:none')) $legendePosition += $onglet["zz_fg_legendetaille"] +5 ;
+		if($iOnglet == 0){
+			echo "background-color:".COULEUR_P0.";";
+		}else{
+			echo "background-color:".COULEUR_S1.";";
+		}//end if
+		echo "' ";
+		echo "onclick='formulaire.ongletExecuter(\"".$onglet["zz_gl_code"]."\");' ";
+		echo ">";
+		echo $onglet["zz_gl_legende"];
+		echo "</span>\n";
+			
+		echo "<fieldset ";
+		echo "id='fieldset_".$onglet["zz_gl_code"]."' ";
+		echo "class='ongletFieldset' ";
+		echo "style='";
+		echo "width:".$this->formulaire['largeur']."px;";
+		echo "height:".$onglet["zz_gl_height"]."px;";
+		if(($onglet['zz_fg_bloc'] % 2) == 0){
+			echo "background-color:".COULEUR_P1.";";
+		}else{
+			echo "background-color:".COULEUR_S3.";";
+		}//end if
+		if($iOnglet != 0) echo "display:none;";
+		echo "' ";
+		echo ">\n";
+	
+	}//end if
+			
+	//Boucle de création des controles
+	include "afficherControles.phtml";
+
+	if($onglet["zz_fg_legendetaille"]){
+		echo "</fieldset>\n";
+		echo "</div>\n";
+	}//end if
+	
+	$iOnglet++;
+	
+}//end foreach
+	
+echo "</div>\n\n";
+
+echo "</div>\n\n";
+echo "\n\n</body>\n";
+echo "\n</html>\n";
+?>

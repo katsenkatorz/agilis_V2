@@ -1,0 +1,28 @@
+<?php
+header ('Content-type: text/xml');
+$contenuXml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n";
+
+$contenuXml .= "<data>";
+if(is_array($this->resultat)){
+	$contenuXml .=  "\n";
+	$contenuXml .= arrayToXml($this->resultat,'');
+}else{
+	$contenuXml .= $this->resultat;
+}//end if
+$contenuXml .=  "</data>\n";
+echo $contenuXml;
+
+function arrayToXml($tableau,$contenu){
+	foreach ($tableau as $cle=>$item) {
+		if(is_numeric($cle)) $cle = "item".$cle;
+		$contenu .= "<".$cle.">";
+		if(is_array($item)){
+			arrayToXml($item,$contenu);
+		}else{
+			if ($item !== null) $contenu .= "<![CDATA[".$item."]]>";
+		}//end if
+		$contenu .= "</".$cle.">\n";
+	}//end foreach
+	return $contenu;
+}//end function
+?>

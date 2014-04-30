@@ -1,0 +1,62 @@
+* {
+	position:absolute;
+	font-family: Arial;
+	font-size: 8pt;
+	margin-left:0px;
+	margin-top:0px;	
+}
+label {
+	text-align: right;
+}
+a {
+	text-align: right;
+}
+a:link, a:visited {color:#000000}
+
+div#enteteFixe{
+  position:fixed; 
+  top:0;
+  left:0;
+  width:100%;
+  background-color:white;
+  z-index:1;
+ }
+#formulaireNom{
+	left:5px;
+	font-size: 14pt;
+	font-weight:bold;
+}
+#selecteur{
+	left:40px;
+	width:120px;
+	font-size: 10pt;	
+	font-weight:bold;
+	text-align:center;
+	background-color: rgb(255, 204, 153);
+}
+.bloc{
+	position:relative;
+	top:0px;
+}
+.onglet {
+	top:0px;
+}
+.ongletLegende {
+	position:absolute;
+	font-weight: bold;
+	font-size: 10pt;
+	text-indent:10px;
+	line-height: 20px;
+	margin-bottom:10px;
+	cursor:pointer;
+}
+.ongletFieldset{
+	top:19px;
+	width:1250px;
+	border-style:none;
+}
+
+.LectureSeule {
+	color:white;
+	background-color: #999999;
+}

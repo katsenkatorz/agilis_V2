@@ -1,0 +1,352 @@
+<?php 
+//Entete du document
+echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>\n";
+echo "<html>\n";
+echo "<head>\n";
+
+echo "<title>".$this->liste["proprietes"]["zz_li_libelle"]."</title>\n";
+echo "</head>\n\n";
+
+echo "<script type='text/javascript' src='".URL."/js/classes/Objet.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/scripts/global.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Regle.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Liste.js'></script>\n";
+
+//Corps du document
+echo "<body>\n\n";
+
+echo "<link rel='stylesheet' type='text/css' href='".URL."/css/liste.css'>\n\n";
+
+//ENTETE DE LA LISTE
+echo "<div id='enteteFixe'>\n";
+$enteteHauteur = 0;
+
+//Titre
+if(! empty($this->liste["proprietes"]["zz_li_affichetitre"])){
+	$enteteHauteur += 40;
+	echo "<span class='titre'>".variablesToValeurs($this->liste["proprietes"]["zz_li_libelle"],$this->liste['variables'])."</span>\n";
+	if(! empty($this->liste["proprietes"]["zz_li_affichedate"])){	
+		$dateJour = date("d/m/Y - H:i");	
+		echo "<span class='date'>(".$dateJour.")</span>\n";
+	}//end if
+}//end if
+
+//Affichage éventuel des icones
+//if($this->liste["proprietes"]["zz_li_selection"] || $this->liste["proprietes"]["zz_li_suppression"] || $this->liste['colonnes']['tri'] || $this->liste["proprietes"]["zz_li_affichefiltre"]){
+if($this->liste["valider"] || $this->liste["supprimer"] || $this->liste['colonnes']['tri'] || $this->liste["proprietes"]["zz_li_affichefiltre"]){
+	echo "<div id='icones' style='height:23px'>\n";
+	$enteteHauteur += 23;
+	
+	//Affichage éventuel du bouton de validation de la sélection
+	if($this->liste["valider"]){
+		echo "<img ";
+		echo "name='selectionValider' ";
+		echo "style='position:absolute;left:0px' ";
+		echo "alt='Valider la sélection' ";
+		echo "src='".URL."/images/icone_valider.png' ";
+		echo "onClick=\"liste.selectionValider()\" ";
+		echo "/>&nbsp;\n";
+	}//end if
+	
+	//Affichage éventuel du bouton de suppression
+	if($this->liste["supprimer"]){
+		echo "<img ";
+		echo "name='selectionSupprimer' ";
+		echo "style='position:absolute;left:30px' ";
+		echo "alt='Supprimer les lignes sélectionnées' ";
+		echo "src='".URL."/images/icone_supprimer.png' ";
+		echo "onClick=\"liste.selectionSupprimer()\" ";
+		echo "/>&nbsp;\n";
+	}//end if	
+	
+	//Affichage éventuel du bouton de suppression du tri pour la liste
+	if($this->liste['colonnes']['tri'] != null){
+		echo "<img ";
+		echo "name='listeTri' ";
+		echo "value='".$this->liste['colonnes']['tri']."' ";
+		echo "style='position:absolute;left:60px' ";		
+		echo "alt='Supprimer le tri' ";
+		echo "src='".URL."/images/icone_tri".$this->liste['colonnes']['tri'].".png' ";
+		echo "onClick=\"liste.tri('liste')\" ";
+		echo "/>&nbsp;\n";	
+	}//end if
+
+	//Affichage éventuel des boutons de filtre
+	if($this->liste["proprietes"]["zz_li_affichefiltre"]){
+		echo "<img ";
+		echo "name='listeFiltre' ";
+		echo "style='position:absolute;left:90px' ";		
+		echo "alt='Appliquer le filtre' ";
+		echo "src='".URL."/images/icone_filtre.png' ";
+		echo "onClick=\"liste.filtreAppliquer()\" ";	
+		echo "/>&nbsp;";
+		echo "<img ";				
+		echo "name='listeFiltreInit' ";
+		echo "style='position:absolute;left:120px' ";		
+		echo "alt='Supprimer le filtre' ";
+		echo "src='".URL."/images/icone_filtreInit.png' ";
+		echo "onClick=\"liste.filtreSupprimer()\" ";
+		echo "/>&nbsp;\n";	
+	}//end if
+	echo "</div>\n";
+}//end if
+
+//Affichage éventuel du nombre de lignes
+if (! empty($this->liste["proprietes"]["zz_li_affichenombrelignes"])) {
+	$enteteHauteur += 15;	
+	echo "<div>\n";
+	echo "<span style='font-size:9pt;font-weight:bold'>".$this->liste["nombreLignes"]."</span>\n";
+	echo "<span style='font-size:8pt'>&nbsp;lignes trouvées</span>\n";
+	echo "</div>\n";
+}//end if
+
+//ENTETE DES COLONNES
+if(! empty($this->liste["proprietes"]["zz_li_afficheentete"])){
+	$enteteHauteur += ($this->liste['entete']['niveaux'] * 11) + (($this->liste['entete']['niveaux']-1) * 15);
+	echo "<table id='TableEntete' style='table-layout:fixed;background-color:white' cellpadding='2px' cellspacing='2px'>\n";
+	echo "<tr>\n";
+	//Colonne éventuelle de sélection
+	if(! empty($this->liste["valider"]) or ! empty($this->liste["supprimer"])){
+		echo "<td style='width:25px'></td>\n";		
+	}//end if
+	//Taille des colonnes
+	foreach($this->liste['colonnes']['taille'] as $colonneTaille) {
+		echo "<td style='width:".$colonneTaille."px'></td>\n";
+	}//end foreach
+	echo "</tr>\n";
+	echo "\n";
+	
+	//Entete
+	for($iNiveaux = 0 ; $iNiveaux < $this->liste['entete']['niveaux'] ; $iNiveaux ++){
+		echo "<tr class=\"entete\">\n";	
+		//Colonne éventuelle de sélection
+		if(! empty($this->liste["valider"]) or ! empty($this->liste["supprimer"])){
+			if($iNiveaux == 0){
+				echo "<td colspan=1 rowspan=".$this->liste['entete']['niveaux'].">";
+				echo "<input type='checkbox' id='selection_entete' style='display:none' onclick='liste.selectionEntete();'/>";
+				echo "</td>\n";
+			}//end if				
+		}//end if		
+		for($iEntete = 0 ; $iEntete < count($this->liste["entete"]["libelle"]) ; $iEntete++) {
+			if($this->liste["entete"]["libelle"][$iEntete][$iNiveaux]){
+				$colspan = $this->liste["entete"]["colspan"][$iEntete][$iNiveaux];
+				$rowspan = $this->liste["entete"]["rowspan"][$iEntete][$iNiveaux];				
+				echo "<td ";
+				echo "colspan=".$colspan." rowspan=".$rowspan.">";
+				$tri = $this->liste["entete"]["tri"][$iEntete];
+				if($tri and $colspan == 1){
+					$triRang = $this->liste["entete"]["triRang"][$iEntete];	
+					$colonneCode = $this->liste["entete"]["code"][$iEntete];						
+					echo "<span style='vertical-align:top;font-size:8pt'>".$triRang."</span>";
+					echo "<img ";
+					echo "name='enteteTri' ";
+					echo "value='".$colonneCode."' ";
+					echo "alt='Tri de la colonne :\n. ascendant\n. descendant\n. pas de Tri' ";
+					echo "src='".URL."/images/tri_".$tri.".png' ";
+					echo "onClick=\"liste.tri('".$colonneCode."')\" ";
+					echo "/>&nbsp;";
+				}//end if
+				echo $this->liste["entete"]["libelle"][$iEntete][$iNiveaux]." ";
+//				if($colspan == '1') echo "</a>";
+				echo "</td>\n";
+			}//end if
+		}//end foreach
+		echo "</tr>\n";
+	}//end for
+	echo "</table>\n";
+
+	//Filtres
+	if(! empty($this->liste["proprietes"]["zz_li_affichefiltre"])){
+		echo "<table id='filtre' style='table-layout:fixed' cellpadding='2px' cellspacing='2px'>\n";
+		echo "<tr>\n";
+		//Colonne éventuelle de sélection
+		if(! empty($this->liste["valider"]) or ! empty($this->liste["supprimer"])){
+			echo "<td style='width:25px'></td>\n";
+		}//end if		
+		foreach($this->liste['colonnes']['taille'] as $taille) echo "<td style='width:".$taille."px'></td>\n";
+		echo "</tr>\n";
+		
+		for($iFiltre=0 ; $iFiltre < 2 ; $iFiltre++){		
+			echo "<tr>\n";
+			//Colonne éventuelle de sélection
+			if(! empty($this->liste["valider"]) or ! empty($this->liste["supprimer"])){
+				echo "<td></span></td>\n";
+			}//end if			
+			
+			foreach($this->liste['colonnes']['afficher'] as $iColonne){
+				if($this->liste['colonnes']['taille'][$iColonne] == 0){
+					echo "<td/>\n";					
+				}else{
+					echo "<td>\n";
+					if($iFiltre == 0 ){
+						echo "<a name='colonneCode' value='".$this->liste["entete"]["code"][$iColonne]."' style='display:none' ";
+						$colonneFormat = $this->liste['colonnes']['proprietes'][$iColonne]['zz_lc_format'];
+						if($colonneFormat) echo " type='".$colonneFormat."'";
+						echo "></a>";
+					}//end if
+					echo "<select name='filtreOperateur$iFiltre'>";
+					echo "<option></option>";
+					echo "<option value='='>=</option>";							
+					echo "<option value='<='>&lt;=</option>";
+					echo "<option value='>='>&gt;=</option>";
+					echo "<option value='<>'><></option>";
+					echo "</select>\n";
+					echo "<input name='filtreValeur$iFiltre' style='width:".($this->liste['colonnes']['proprietes'][$iColonne]['zz_lc_taille']-57)."px'";
+					$format = $this->liste['colonnes']['proprietes'][$iColonne]['zz_lc_format'];
+					if($format != null){
+						$formatOption = $this->liste['colonnes']['proprietes'][$iColonne]['zz_lc_formatoption'];						
+						echo " onblur=\"liste.formatVerifier(this,'".$format."','".$formatOption."')\"";
+					}//end if
+					echo "/>\n";
+					echo "</td>\n";
+				}//end if
+			}//end foreach
+			echo "</tr>\n";				
+		}//end for
+		echo "</table>\n";
+		$enteteHauteur += 65;		
+	}//end if
+
+}//end if
+echo "</div>\n\n";
+
+if($this->liste["ruptures"] > 0) $enteteHauteur += 5;
+
+//DONNEES DE LA LISTE
+echo "<div id='contenu' style='margin-top:".$enteteHauteur."px'>\n";
+
+foreach($this->liste["structure"] as $structure){
+	switch(substr($structure['classe'],0,7)){
+		case 'rupture':
+			echo "<div class='".$structure['classe']."'";
+			if($structure['classe'] == 'rupture0')echo " style='width:".$this->liste['largeur']."px'";
+			echo ">";
+			echo "<a style='";
+			echo "padding-left:".((substr($structure['classe'],7,1)) * 20)."px;";			
+			echo "font-size:".(13 - substr($structure['classe'],7,1))."pt;";			
+			echo "'>".$structure['valeur']."</a>";
+			echo "</div>\n";
+			break;
+		case 'data':
+			echo "<table id='tableData' style='table-layout:fixed;font-size:9pt;' cellpadding='2px' cellspacing='2px'>\n";
+			//Colonne éventuelle de sélection
+			if(! empty($this->liste["valider"]) or ! empty($this->liste["supprimer"])){
+				echo "<td style='width:25px'></td>\n";
+			}//end if
+			//Taille des colonnes				
+			foreach($this->liste['colonnes']['taille'] as $colonneTaille) {
+				echo "<td style='width:".$colonneTaille."px";
+				echo "'></td>\n";
+			}//end foreach			
+			
+			for($iLigne = $structure['debut'] ; $iLigne <= $structure['fin'] ; $iLigne++){
+				echo "<tr ";
+				if($iLigne == $structure['fin'] and $this->liste["total"]){
+					$total = true;
+					echo "class='total' ";
+				}else{
+					$total = false;
+					if(($iLigne %2) == 0){
+						echo "style='background-color:".COULEUR_S3."';";
+					}else{						
+						echo "style='background-color:".COULEUR_P1."';";				
+					}//end if
+				}//end if
+				echo ">\n";
+
+				//Colonne éventuelle de sélection
+				if(! empty($this->liste["valider"]) or ! empty($this->liste["supprimer"])){
+					echo "<td style='width:25px'>";
+					echo "<input type='checkbox' name='selection' value='".$iLigne."' onclick='liste.selectionClick($iLigne);'/>";
+					echo "</td>\n";
+				}//end if
+				
+				$iColonneRang = 0;
+				foreach($this->liste['colonnes']['afficher'] as $iColonne){
+					$colonneCode = $this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_code"];
+					$colonneType = $this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_type"];
+					$colonneTaille = $this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_taille"];
+					$colonneFormat = $this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_format"];
+					$colonneFormatOption = $this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_formatoption"];
+					$colonneFormatBlanc = $this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_formatblanc"];
+					$colonneLien = $this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_lien"];					
+					$colonneInfoBulle = $this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_infobulle"];
+					
+					$colonneNomArray = split('_',$this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_code"]);
+					$colonneAlias = strtolower($colonneNomArray[3]);
+					$colonneData = $this->liste['data'][$iLigne][$colonneAlias];
+				
+					echo "<td";					
+					$styleValeur = '';
+					if(!empty($this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_format"])){
+						if(stripos("Nombre,Euros,Pourcentage",$this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_format"])!== false) $styleValeur .= "text-align:right;";
+					}//end if
+					if(!empty($this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_style"])){						
+						$style = split("³",$this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_style"]);
+						if(!empty($this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_stylecondition"])){
+							$styleCondition = split("³",$this->liste['colonnes']['proprietes'][$iColonne]["zz_lc_stylecondition"]);
+						}else{
+							$styleCondition[0] = '';
+						}//end if
+						for ($i=0 ; $i < count($style) ; $i++) {
+							if ($styleCondition[$i] != "") {$condition = str_replace('[[valeur]]',$colonneData,$styleCondition[$i]);} else {$condition = "true";}
+							eval("\$condition = ".$condition.";");
+							if($condition){
+								$styleValeur .= $style[$i].";";
+							}//end if
+						}//end for						
+					}//end if
+					if($styleValeur != '') echo " style='".$styleValeur."'";
+					echo ">";
+					
+					$celluleId = $colonneCode."_".$iLigne;
+					if($colonneType == 'img'){
+						echo "<img  src='".URL."/images/editer1.png' alt='".$colonneInfoBulle."' ";
+					}else{	
+						echo "<a ";
+					}//end if
+					echo "id='".$celluleId."'";
+					if(!empty($this->liste['liens']) and in_array($colonneCode.'.onclick', $this->liste['liens'])){
+						echo " class='lien' ";
+						if($colonneType == 'img'){
+							echo "onclick='javascript:liste.celluleClick(\"$celluleId\")' ";
+						}else{						
+							echo "href='javascript:liste.celluleClick(\"$celluleId\")' ";
+						}//end if
+						$colonneLienArray = split('_',$colonneLien);
+						$colonneLienAlias = strtolower($colonneLienArray[3]);
+						$lienValeur = $this->liste['data'][$iLigne][$colonneLienAlias];
+						echo "value='".$lienValeur."' ";
+						if(! empty($this->liste['variables']['var_liste_clic_valeur']) and $lienValeur == $this->liste['variables']['var_liste_clic_valeur']){
+							$this->liste['variables']['var_liste_clic_id'] = $celluleId;
+						}//end if
+					}//end if
+					if($colonneTaille == 0) echo " style='display:none'";					
+					echo ">";
+					if($colonneType == 'img'){
+						echo "</img>";						
+					}else{					
+						if($colonneFormat!== null) $colonneData = format($colonneData,$colonneFormat,$colonneFormatOption,$colonneFormatBlanc);
+						echo $colonneData;
+						echo "</a>";
+					}//end if
+					echo "</td>\n";
+					$iColonneRang++;
+				}//end foreach
+				echo "</tr>\n";					
+			}//end for
+			echo "</table>\n";			
+	}//end switch
+	
+}//end foreach
+
+echo "</body>\n";
+echo "</html>\n\n";
+
+//echo "<input name='variables' style='display:none' value=\"".arrayToXml($this->liste['variables'])."\"/>\n\n";
+foreach($this->liste['variables'] as $variableNom => $variableValeur){
+	echo "<variable id='$variableNom' value=\"$variableValeur\" />\n";
+}//end foreach
+
+echo "\n";
+echo "<script type='text/javascript' src='".URL."/js/scripts/liste.js'></script>\n";

@@ -1,0 +1,51 @@
+<?php
+if($this->formulaire['proprietes']['zz_fo_code'] == ""){
+	//Page blanche	
+	echo "<body></body>";
+	return;
+}else{
+	//Page uniquement composée de texte
+	if ($this->formulaireControles[0]["zz_gc_tagname"] == "html") {
+		$fichier = $_SERVER["DOCUMENT_ROOT"].$this->controles[0]["zz_gc_valeur"];
+		echo file_get_contents($fichier);
+		return;
+	}//end if
+}//end if
+
+//Formulaire standard
+
+//Entete du document
+//echo "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 strict//FR'>\n";
+echo "<html>\n";
+echo "<head>\n";
+echo "<title>".$this->formulaire['proprietes']["zz_fo_libelle"]."</title>\n";
+echo "</head>\n\n";
+
+//Feuille de style
+$css = URL."/css/formulaire.css";
+echo "<link rel='stylesheet' type='text/css' href='".$css."'>\n\n";
+
+//Body
+echo "<body onUnload='formulaire.formulaireQuitter()'>\n";
+
+//Affichage de l'entête fixe
+include_once "afficherEntete.phtml";
+
+//Affichage des onglets
+include_once "afficherOnglets.phtml";
+
+echo "\n";
+foreach($this->formulaire['variables'] as $variableNom => $variableValeur){
+	echo "<variable id='$variableNom' value=\"$variableValeur\" />\n";
+}//end foreach
+echo "\n";
+
+echo "<input id='synchronisation_cadre' type='hidden'/>\n\n";
+
+//echo "<script type='text/javascript' src='".URL."/js/classes/Objet.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/scripts/global.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Regle.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Adresse.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/classes/Formulaire.js'></script>\n";
+echo "<script type='text/javascript' src='".URL."/js/scripts/formulaire.js'></script>\n";
+?>

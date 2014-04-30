@@ -1,0 +1,20 @@
+<script type="text/javascript" >
+
+function ajax() {
+	xhr = new ActiveXObject("Microsoft.XMLHTTP");
+	xhr.open("POST","//10.135.18.217/agilis_V2/public/test500Data.html",false);
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xhr.send(null);
+	return(xhr.responseText);
+}//end function
+
+var Erreur = 0;
+for (var i=0;i<500;i++) {
+	var Resultat = ajax();
+	document.write (i + " : "+Resultat.substring(0,50) + "<br>");
+	if (Resultat.indexOf("test500Data") < 0) Erreur += 1;
+}//end for
+
+document.write (Erreur + " erreurs sur " + i + " tentatives");
+
+</script>

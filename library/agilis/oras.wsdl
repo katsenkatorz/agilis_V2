@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:15T.orange.com/wsdl/oras/v0"
+	xmlns:apachesoap="http://xml.apache.org/xml-soap"
+	xmlns:impl="urn:15T.orange.com/wsdl/oras/v0"
+	xmlns:intf="urn:15T.orange.com/wsdl/oras/v0"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<!--WSDL created by Apache Axis version: 1.2.1 Built on Jun 14, 2005 (09:15:57 EDT)-->
+	<wsdl:types>
+
+		<schema elementFormDefault="qualified"
+			targetNamespace="urn:15T.orange.com/wsdl/oras/v0"
+			xmlns:orasTypes="urn:15T.orange.com/wsdl/oras/v0/types"
+			xmlns="http://www.w3.org/2001/XMLSchema">
+
+			<import namespace="urn:15T.orange.com/wsdl/oras/v0/types"
+				schemaLocation="orasTypes.xsd" />
+
+			<element name="doRNVP">
+				<complexType>
+					<sequence>
+						<element name="authentification"
+							type="orasTypes:Authentification" />
+						<element name="parametres"
+							type="orasTypes:Parametres" />
+						<element name="adresse"
+							type="orasTypes:Adresse" />
+					</sequence>
+				</complexType>
+			</element>
+
+			<element name="doRNVPResponse">
+				<complexType>
+					<sequence>
+						<element maxOccurs="unbounded"
+							name="doRNVPReturn" type="orasTypes:Adresse" />
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</wsdl:types>
+
+	<wsdl:message name="doRNVPResponse">
+		<wsdl:part element="impl:doRNVPResponse" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:message name="doRNVPRequest">
+		<wsdl:part element="impl:doRNVP" name="parameters" />
+	</wsdl:message>
+
+	<wsdl:portType name="ValidationAdresse">
+		<wsdl:operation name="doRNVP">
+			<wsdl:input message="impl:doRNVPRequest"
+				name="doRNVPRequest" />
+			<wsdl:output message="impl:doRNVPResponse"
+				name="doRNVPResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="VPSoapBinding" type="impl:ValidationAdresse">
+		<wsdlsoap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="doRNVP">
+			<wsdlsoap:operation soapAction="" />
+			<wsdl:input name="doRNVPRequest">
+				<wsdlsoap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="doRNVPResponse">
+				<wsdlsoap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="ValidationAdresseService">
+		<wsdl:port binding="impl:VPSoapBinding" name="VP">
+			<wsdlsoap:address
+				location="http://localhost/oras/services/VP" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

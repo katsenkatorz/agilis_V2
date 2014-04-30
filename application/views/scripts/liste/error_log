@@ -1,0 +1,299 @@
+Zend Download Server feature isn't enabled in the license file.
+[Fri Oct 19 05:32:24 2012] [notice] Digest: generating secret for digest authentication ...
+[Fri Oct 19 05:32:24 2012] [notice] Digest: done
+[Fri Oct 19 05:32:27 2012] [notice] Apache configured -- resuming normal operations
+[Fri Oct 19 07:51:18 2012] [error] [client 10.115.64.5] PHP Fatal error:  Call to a member function GetDonnee() on a non-object in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 107
+[Fri Oct 19 07:51:22 2012] [error] [client 10.115.64.5] PHP Fatal error:  Call to a member function GetDonnee() on a non-object in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 107
+[Fri Oct 19 07:51:23 2012] [error] [client 10.115.64.5] PHP Fatal error:  Call to a member function GetDonnee() on a non-object in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 107
+[Fri Oct 19 08:02:12 2012] [error] [client 10.115.64.33] PHP Parse error:  syntax error, unexpected ':' in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml(244) : eval()'d code on line 1, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=6351607f5271667c35646f636f55676d61627f57607e3965657363616f5f5271667f2c3c6f636f556761607244e35646
+[Fri Oct 19 08:02:22 2012] [error] [client 10.115.64.33] PHP Parse error:  syntax error, unexpected ':' in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml(244) : eval()'d code on line 1, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=6351607f5271667c35646f636f55676d61627f57607e3965657363616f5f5271667f2c3c6f636f556761607244e35646
+[Fri Oct 19 08:08:16 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:  niveaux in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 91, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=497f556761607f5271667c31627f57607e35646f636c3c6965657363616f5d6f556761607f5271667f2244e35646f636
+[Fri Oct 19 08:08:16 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:  niveaux in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 91, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=497f556761607f5271667c31627f57607e35646f636c3c6965657363616f5d6f556761607f5271667f2244e35646f636
+[Fri Oct 19 08:08:16 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:  niveaux in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 102, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=497f556761607f5271667c31627f57607e35646f636c3c6965657363616f5d6f556761607f5271667f2244e35646f636
+[Fri Oct 19 08:21:59 2012] [error] [client 10.197.4.4] File does not exist: /data/www/monsilocal.reseau/html/_vti_inf.html
+[Fri Oct 19 08:21:59 2012] [error] [client 10.197.4.4] File does not exist: /data/www/monsilocal.reseau/html/_vti_bin
+[Fri Oct 19 08:27:47 2012] [error] [client 10.197.4.1] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PC/PiecesJointes/27517-11-A0022/
+[Fri Oct 19 08:31:50 2012] [error] [client 10.197.4.1] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 339, referer: http://agilis.sso.francetelecom.fr/Html/Session.html
+[Fri Oct 19 08:38:00 2012] [error] [client 10.197.4.4] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PC/PiecesJointes/14207-12-P0004/
+[Fri Oct 19 08:43:20 2012] [notice] child pid 26973 exit signal Segmentation fault (11)
+[Fri Oct 19 08:43:20 2012] [notice] child pid 26974 exit signal Segmentation fault (11)
+[Fri Oct 19 08:43:20 2012] [notice] child pid 26975 exit signal Segmentation fault (11)
+[Fri Oct 19 08:43:20 2012] [notice] child pid 26982 exit signal Segmentation fault (11)
+[Fri Oct 19 08:43:20 2012] [notice] child pid 26984 exit signal Segmentation fault (11)
+[Fri Oct 19 08:43:33 2012] [notice] child pid 26966 exit signal Segmentation fault (11)
+[Fri Oct 19 08:43:33 2012] [notice] child pid 26967 exit signal Segmentation fault (11)
+[Fri Oct 19 08:43:33 2012] [notice] child pid 26969 exit signal Segmentation fault (11)
+[Fri Oct 19 08:43:33 2012] [notice] child pid 26979 exit signal Segmentation fault (11)
+[Fri Oct 19 08:43:34 2012] [notice] child pid 26959 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:00 2012] [notice] child pid 26956 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:00 2012] [notice] child pid 26962 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:00 2012] [notice] child pid 26971 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:00 2012] [notice] child pid 4407 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:01 2012] [notice] child pid 4406 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:34 2012] [notice] child pid 4458 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:34 2012] [notice] child pid 4459 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:35 2012] [notice] child pid 4405 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:35 2012] [notice] child pid 4460 exit signal Segmentation fault (11)
+[Fri Oct 19 08:44:35 2012] [notice] child pid 4461 exit signal Segmentation fault (11)
+[Fri Oct 19 08:45:02 2012] [notice] child pid 26981 exit signal Segmentation fault (11)
+[Fri Oct 19 08:45:02 2012] [notice] child pid 4412 exit signal Segmentation fault (11)
+[Fri Oct 19 08:45:03 2012] [notice] child pid 26977 exit signal Segmentation fault (11)
+[Fri Oct 19 08:45:03 2012] [notice] child pid 4411 exit signal Segmentation fault (11)
+[Fri Oct 19 08:45:03 2012] [notice] child pid 4499 exit signal Segmentation fault (11)
+[Fri Oct 19 08:46:13 2012] [notice] child pid 4410 exit signal Segmentation fault (11)
+[Fri Oct 19 08:46:13 2012] [notice] child pid 4498 exit signal Segmentation fault (11)
+[Fri Oct 19 08:46:13 2012] [notice] child pid 4643 exit signal Segmentation fault (11)
+[Fri Oct 19 08:46:13 2012] [notice] child pid 4644 exit signal Segmentation fault (11)
+[Fri Oct 19 08:46:13 2012] [notice] child pid 4702 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:31 2012] [notice] child pid 4636 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:31 2012] [notice] child pid 4707 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:31 2012] [notice] child pid 4709 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:32 2012] [notice] child pid 4646 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:32 2012] [notice] child pid 4706 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:32 2012] [notice] child pid 4854 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:46 2012] [notice] child pid 4749 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:46 2012] [notice] child pid 4856 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:47 2012] [notice] child pid 4645 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:47 2012] [notice] child pid 4708 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:47 2012] [notice] child pid 4855 exit signal Segmentation fault (11)
+[Fri Oct 19 08:48:47 2012] [notice] child pid 4859 exit signal Segmentation fault (11)
+[Fri Oct 19 08:49:50 2012] [notice] child pid 4864 exit signal Segmentation fault (11)
+[Fri Oct 19 08:49:52 2012] [notice] child pid 4857 exit signal Segmentation fault (11)
+[Fri Oct 19 08:49:52 2012] [notice] child pid 4858 exit signal Segmentation fault (11)
+[Fri Oct 19 08:49:52 2012] [notice] child pid 4862 exit signal Segmentation fault (11)
+[Fri Oct 19 08:49:52 2012] [notice] child pid 4868 exit signal Segmentation fault (11)
+[Fri Oct 19 08:49:53 2012] [notice] child pid 4955 exit signal Segmentation fault (11)
+[Fri Oct 19 08:53:14 2012] [error] [client 10.197.4.4] File does not exist: /data/www/monsilocal.reseau/html/_vti_inf.html
+[Fri Oct 19 08:53:14 2012] [error] [client 10.197.4.4] File does not exist: /data/www/monsilocal.reseau/html/_vti_bin
+[Fri Oct 19 08:53:32 2012] [error] [client 10.197.4.4] File does not exist: /data/www/monsilocal.reseau/html/_vti_inf.html
+[Fri Oct 19 08:53:32 2012] [error] [client 10.197.4.4] File does not exist: /data/www/monsilocal.reseau/html/_vti_bin
+[Fri Oct 19 09:23:33 2012] [notice] child pid 4863 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:33 2012] [notice] child pid 4865 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:33 2012] [notice] child pid 4869 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:33 2012] [notice] child pid 4956 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:33 2012] [notice] child pid 4957 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:33 2012] [notice] child pid 4959 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:33 2012] [notice] child pid 4960 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:33 2012] [notice] child pid 5013 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:33 2012] [notice] child pid 6482 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:45 2012] [notice] child pid 5016 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:45 2012] [notice] child pid 7379 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:45 2012] [notice] child pid 7380 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:45 2012] [notice] child pid 7381 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:45 2012] [notice] child pid 7382 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:49 2012] [notice] child pid 7378 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:51 2012] [notice] child pid 7387 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:53 2012] [notice] child pid 7384 exit signal Segmentation fault (11)
+[Fri Oct 19 09:23:54 2012] [notice] child pid 7388 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:06 2012] [notice] child pid 7383 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:07 2012] [notice] child pid 7391 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:07 2012] [notice] child pid 7479 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:08 2012] [notice] child pid 7385 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:08 2012] [notice] child pid 7393 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:11 2012] [notice] child pid 7534 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:34 2012] [notice] child pid 7533 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:34 2012] [notice] child pid 7538 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:35 2012] [notice] child pid 7532 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:35 2012] [notice] child pid 7536 exit signal Segmentation fault (11)
+[Fri Oct 19 09:25:35 2012] [notice] child pid 7537 exit signal Segmentation fault (11)
+[Fri Oct 19 09:26:06 2012] [notice] child pid 7545 exit signal Segmentation fault (11)
+mv: `/data/www/monsilocal.reseau/html/../cft/IA2/in/vol_cable.20121019034054.ok.csv' and `/data/www/monsilocal.reseau/html/Files/IA2/vol_cable.20121019034054.ok.csv' are the same file
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019034054.ok.csv': No such file or directory
+[Fri Oct 19 09:26:19 2012] [notice] child pid 7386 exit signal Segmentation fault (11)
+[Fri Oct 19 09:27:17 2012] [notice] child pid 7548 exit signal Segmentation fault (11)
+[Fri Oct 19 09:27:18 2012] [notice] child pid 7542 exit signal Segmentation fault (11)
+[Fri Oct 19 09:27:18 2012] [notice] child pid 7543 exit signal Segmentation fault (11)
+[Fri Oct 19 09:27:18 2012] [notice] child pid 7549 exit signal Segmentation fault (11)
+[Fri Oct 19 09:27:19 2012] [notice] child pid 7547 exit signal Segmentation fault (11)
+mv: `/data/www/monsilocal.reseau/html/../cft/IA2/in/vol_cable.20121019035055.ok.csv' and `/data/www/monsilocal.reseau/html/Files/IA2/vol_cable.20121019035055.ok.csv' are the same file
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019035055.ok.csv': No such file or directory
+[Fri Oct 19 09:28:21 2012] [notice] child pid 7544 exit signal Segmentation fault (11)
+[Fri Oct 19 09:28:21 2012] [notice] child pid 7611 exit signal Segmentation fault (11)
+[Fri Oct 19 09:28:22 2012] [notice] child pid 7535 exit signal Segmentation fault (11)
+[Fri Oct 19 09:28:22 2012] [notice] child pid 7701 exit signal Segmentation fault (11)
+[Fri Oct 19 09:28:22 2012] [notice] child pid 7702 exit signal Segmentation fault (11)
+[Fri Oct 19 09:29:05 2012] [notice] child pid 7759 exit signal Segmentation fault (11)
+[Fri Oct 19 09:29:05 2012] [notice] child pid 7762 exit signal Segmentation fault (11)
+[Fri Oct 19 09:29:06 2012] [notice] child pid 7757 exit signal Segmentation fault (11)
+[Fri Oct 19 09:29:06 2012] [notice] child pid 7763 exit signal Segmentation fault (11)
+[Fri Oct 19 09:29:06 2012] [notice] child pid 7765 exit signal Segmentation fault (11)
+mv: `/data/www/monsilocal.reseau/html/../cft/IA2/in/vol_cable.20121019040057.ok.csv' and `/data/www/monsilocal.reseau/html/Files/IA2/vol_cable.20121019040057.ok.csv' are the same file
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019040057.ok.csv': No such file or directory
+[Fri Oct 19 09:30:06 2012] [error] [client 10.197.4.2] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PI/PiecesJointes/Plans_Courriers/12-72-0073/
+mv: `/data/www/monsilocal.reseau/html/../cft/IA2/in/vol_cable.20121019041058.ok.csv' and `/data/www/monsilocal.reseau/html/Files/IA2/vol_cable.20121019041058.ok.csv' are the same file
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019041058.ok.csv': No such file or directory
+[Fri Oct 19 09:31:21 2012] [error] [client 10.197.4.2] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PI/PiecesJointes/Devis/12-72-0073/
+sendmail: fatal: No recipient addresses found in message header
+[Fri Oct 19 09:47:13 2012] [error] [client 10.197.4.4] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PC/PiecesJointes/27215-12-F0006/
+[Fri Oct 19 10:05:53 2012] [error] [client 10.197.4.4] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PI/PiecesJointes/Plans_Courriers/12-45-0207/
+sendmail: fatal: No recipient addresses found in message header
+[Fri Oct 19 10:07:48 2012] [error] [client 10.197.4.4] PHP Fatal error:  Call to a member function GetDonnee() on a non-object in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 107
+[Fri Oct 19 10:07:48 2012] [error] [client 10.197.4.4] PHP Fatal error:  Call to a member function GetDonnee() on a non-object in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 107, referer: http://agilis.sso.francetelecom.fr/index.php
+[Fri Oct 19 10:21:09 2012] [error] [client 10.115.64.5] PHP Fatal error:  Call to a member function GetDonnee() on a non-object in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 107
+sendmail: fatal: No recipient addresses found in message header
+sendmail: fatal: No recipient addresses found in message header
+[Fri Oct 19 11:16:36 2012] [error] [client 10.197.4.2] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PI/PiecesJointes/Devis/12-50-0154/
+[Fri Oct 19 11:17:52 2012] [error] [client 10.115.64.33] PHP Fatal error:  Call to undefined function  substring() in /data/www/monsilocal.reseau/html/Taches/Import_Adelia.php on line 131
+[Fri Oct 19 11:20:03 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined offset:  3 in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 259, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=869636f556761607f5271667c316f5d61627f57607e35646f667f2c39655c696565736365646f636f556761607f5271164e3
+[Fri Oct 19 11:20:03 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:   in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 260, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=869636f556761607f5271667c316f5d61627f57607e35646f667f2c39655c696565736365646f636f556761607f5271164e3
+[Fri Oct 19 11:20:09 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined offset:  3 in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 259, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=487556761607f5271667c327f57607e35646f636f6965657363616f5d61607f5271667f2c39655c4e35646f636f556761616
+[Fri Oct 19 11:20:09 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:   in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 260, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=487556761607f5271667c327f57607e35646f636f6965657363616f5d61607f5271667f2c39655c4e35646f636f556761616
+[Fri Oct 19 11:20:15 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined offset:  3 in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 259, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=55856761607f5271667c3f57607e35646f636f55657363616f5d61627271667f2c39655c69646f636f556761607f5164e356
+[Fri Oct 19 11:20:15 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:   in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 260, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=55856761607f5271667c3f57607e35646f636f55657363616f5d61627271667f2c39655c69646f636f556761607f5164e356
+[Fri Oct 19 11:20:29 2012] [error] [client 10.197.4.2] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PC/PiecesJointes/50294-11-Q0008/
+[Fri Oct 19 11:49:07 2012] [error] [client 10.197.4.2] File does not exist: /data/www/monsilocal.reseau/html/_vti_bin
+[Fri Oct 19 11:49:07 2012] [error] [client 10.197.4.2] File does not exist: /data/www/monsilocal.reseau/html/MSOffice
+[Fri Oct 19 12:11:40 2012] [error] [client 10.115.64.5] PHP Fatal error:  Call to a member function GetDonnee() on a non-object in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 107, referer: http://agilis.sso.francetelecom.fr/index.php
+[Fri Oct 19 13:02:21 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:  niveaux in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 91, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=85261607f5271667c3e35646f636f55676f5d61627f57607372756963737f6435647e6564747161607f5271667f2c35646f636f55676335e
+[Fri Oct 19 13:02:21 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:  niveaux in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 91, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=85261607f5271667c3e35646f636f55676f5d61627f57607372756963737f6435647e6564747161607f5271667f2c35646f636f55676335e
+[Fri Oct 19 13:02:21 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:  niveaux in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 102, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=85261607f5271667c3e35646f636f55676f5d61627f57607372756963737f6435647e6564747161607f5271667f2c35646f636f55676335e
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019002034.ok.csv': No such file or directory
+[Fri Oct 19 13:19:34 2012] [error] [client 10.197.4.1] File does not exist: /data/www/monsilocal.reseau/html/_vti_inf.html
+[Fri Oct 19 13:19:34 2012] [error] [client 10.197.4.1] File does not exist: /data/www/monsilocal.reseau/html/_vti_bin
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019003035.ok.csv': No such file or directory
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019004036.ok.csv': No such file or directory
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019000032.ok.csv': No such file or directory
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019002034.ok.csv': No such file or directory
+rm: cannot remove `Files/Network/Network.txt': No such file or directory
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121019001033.ok.csv': No such file or directory
+[Fri Oct 19 13:45:09 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:  niveaux in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 91, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=472607f5271667c346f636f556761627f57607e3563737f646f5d614e65437275696f2c3372757f6361607f52716675646f636f5567825e3
+[Fri Oct 19 13:45:09 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:  niveaux in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 91, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=472607f5271667c346f636f556761627f57607e3563737f646f5d614e65437275696f2c3372757f6361607f52716675646f636f5567825e3
+[Fri Oct 19 13:45:09 2012] [error] [client 10.115.64.33] PHP Notice:  Undefined index:  niveaux in /data/www/monsilocal.reseau/html/agilis_V2/application/views/scripts/liste/afficher.phtml on line 102, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=472607f5271667c346f636f556761627f57607e3563737f646f5d614e65437275696f2c3372757f6361607f52716675646f636f5567825e3
+[Fri Oct 19 14:08:58 2012] [notice] child pid 23285 exit signal Segmentation fault (11)
+[Fri Oct 19 14:08:59 2012] [notice] child pid 23730 exit signal Segmentation fault (11)
+[Fri Oct 19 14:08:59 2012] [notice] child pid 23964 exit signal Segmentation fault (11)
+[Fri Oct 19 14:08:59 2012] [notice] child pid 26593 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:02 2012] [notice] child pid 22588 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:02 2012] [notice] child pid 23052 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:02 2012] [notice] child pid 23823 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:02 2012] [notice] child pid 23963 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:02 2012] [notice] child pid 26540 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:03 2012] [notice] child pid 28185 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:07 2012] [notice] child pid 28186 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:07 2012] [notice] child pid 28187 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:07 2012] [notice] child pid 28188 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:07 2012] [notice] child pid 28189 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:07 2012] [notice] child pid 28190 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:07 2012] [notice] child pid 28191 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:22 2012] [notice] child pid 28194 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:22 2012] [notice] child pid 28195 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:22 2012] [notice] child pid 28198 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:22 2012] [notice] child pid 28206 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:40 2012] [notice] child pid 28200 exit signal Segmentation fault (11)
+[Fri Oct 19 14:09:40 2012] [notice] child pid 28237 exit signal Segmentation fault (11)
+[Fri Oct 19 14:10:46 2012] [notice] child pid 28196 exit signal Segmentation fault (11)
+[Fri Oct 19 14:10:46 2012] [notice] child pid 28230 exit signal Segmentation fault (11)
+[Fri Oct 19 14:10:46 2012] [notice] child pid 28240 exit signal Segmentation fault (11)
+[Fri Oct 19 14:10:47 2012] [notice] child pid 28226 exit signal Segmentation fault (11)
+[Fri Oct 19 14:11:20 2012] [notice] child pid 24901 exit signal Segmentation fault (11)
+[Fri Oct 19 14:11:20 2012] [notice] child pid 28197 exit signal Segmentation fault (11)
+[Fri Oct 19 14:11:20 2012] [notice] child pid 28241 exit signal Segmentation fault (11)
+[Fri Oct 19 14:11:20 2012] [notice] child pid 28302 exit signal Segmentation fault (11)
+[Fri Oct 19 14:11:21 2012] [notice] child pid 28199 exit signal Segmentation fault (11)
+[Fri Oct 19 14:11:21 2012] [notice] child pid 28300 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:19 2012] [notice] child pid 28354 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:20 2012] [notice] child pid 28301 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:20 2012] [notice] child pid 28352 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:20 2012] [notice] child pid 28355 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:20 2012] [notice] child pid 28357 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:20 2012] [notice] child pid 28444 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:55 2012] [notice] child pid 28351 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:55 2012] [notice] child pid 28356 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:55 2012] [notice] child pid 28447 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:55 2012] [notice] child pid 28448 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:55 2012] [notice] child pid 28449 exit signal Segmentation fault (11)
+[Fri Oct 19 14:12:55 2012] [notice] child pid 28450 exit signal Segmentation fault (11)
+[Fri Oct 19 14:13:45 2012] [notice] child pid 28461 exit signal Segmentation fault (11)
+[Fri Oct 19 14:13:46 2012] [notice] child pid 28446 exit signal Segmentation fault (11)
+[Fri Oct 19 14:13:46 2012] [notice] child pid 28458 exit signal Segmentation fault (11)
+[Fri Oct 19 14:13:46 2012] [notice] child pid 28459 exit signal Segmentation fault (11)
+[Fri Oct 19 14:15:07 2012] [notice] child pid 28350 exit signal Segmentation fault (11)
+[Fri Oct 19 14:15:07 2012] [notice] child pid 28445 exit signal Segmentation fault (11)
+[Fri Oct 19 14:15:07 2012] [notice] child pid 28454 exit signal Segmentation fault (11)
+[Fri Oct 19 14:15:07 2012] [notice] child pid 28737 exit signal Segmentation fault (11)
+[Fri Oct 19 14:15:47 2012] [notice] child pid 28455 exit signal Segmentation fault (11)
+[Fri Oct 19 14:15:47 2012] [notice] child pid 28565 exit signal Segmentation fault (11)
+[Fri Oct 19 14:15:48 2012] [notice] child pid 28456 exit signal Segmentation fault (11)
+[Fri Oct 19 14:15:48 2012] [notice] child pid 28744 exit signal Segmentation fault (11)
+[Fri Oct 19 14:16:49 2012] [notice] child pid 28560 exit signal Segmentation fault (11)
+[Fri Oct 19 14:16:49 2012] [notice] child pid 28747 exit signal Segmentation fault (11)
+[Fri Oct 19 14:16:49 2012] [notice] child pid 28803 exit signal Segmentation fault (11)
+[Fri Oct 19 14:16:50 2012] [notice] child pid 28750 exit signal Segmentation fault (11)
+[Fri Oct 19 14:18:27 2012] [notice] child pid 28511 exit signal Segmentation fault (11)
+[Fri Oct 19 14:18:27 2012] [notice] child pid 28808 exit signal Segmentation fault (11)
+[Fri Oct 19 14:18:28 2012] [notice] child pid 28746 exit signal Segmentation fault (11)
+[Fri Oct 19 14:18:28 2012] [notice] child pid 28807 exit signal Segmentation fault (11)
+[Fri Oct 19 14:19:05 2012] [notice] child pid 28460 exit signal Segmentation fault (11)
+[Fri Oct 19 14:19:05 2012] [notice] child pid 28741 exit signal Segmentation fault (11)
+[Fri Oct 19 14:19:05 2012] [notice] child pid 28745 exit signal Segmentation fault (11)
+[Fri Oct 19 14:19:05 2012] [notice] child pid 28804 exit signal Segmentation fault (11)
+[Fri Oct 19 14:19:05 2012] [notice] child pid 28809 exit signal Segmentation fault (11)
+[Fri Oct 19 14:19:05 2012] [notice] child pid 28810 exit signal Segmentation fault (11)
+[Fri Oct 19 14:20:49 2012] [notice] child pid 28996 exit signal Segmentation fault (11)
+[Fri Oct 19 14:22:14 2012] [notice] child pid 28997 exit signal Segmentation fault (11)
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121018234030.ok.csv': No such file or directory
+[Fri Oct 19 14:31:28 2012] [error] [client 10.115.64.33] PHP Warning:  scandir(/data/www/monsilocal.reseau/html/agilis_V2/public/files/pj/ram/ 22034-09-G0016) [<a href='function.scandir'>function.scandir</a>]: failed to open dir: No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=4946761607f5271667c37607e35646f636f55737f646f5d61627f5566757f6e427569637f5271667f2c357165646f636f556761607f666f5271667c3e3f556279616c657d62303232302e356c636030374d29303d24336f5271667f2c36313279616c657d627f66667c3e356c636f556c657d627f666f5271646f636f556279616f5d61627f5f666e356e42756963737f64667f2c35716566757f657d627f666f5271646f636f556279616c636f5271667c3e3565646f636f556274616f5d61627f57607e3f6e42756963737f647f666f55716566757c356279616c657d627461636f5271667f232e35646f636f55621
+[Fri Oct 19 14:31:28 2012] [error] [client 10.115.64.33] PHP Warning:  scandir() [<a href='function.scandir'>function.scandir</a>]: (errno 2): No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=4946761607f5271667c37607e35646f636f55737f646f5d61627f5566757f6e427569637f5271667f2c357165646f636f556761607f666f5271667c3e3f556279616c657d62303232302e356c636030374d29303d24336f5271667f2c36313279616c657d627f66667c3e356c636f556c657d627f666f5271646f636f556279616f5d61627f5f666e356e42756963737f64667f2c35716566757f657d627f666f5271646f636f556279616c636f5271667c3e3565646f636f556274616f5d61627f57607e3f6e42756963737f647f666f55716566757c356279616c657d627461636f5271667f232e35646f636f55621
+[Fri Oct 19 14:31:28 2012] [error] [client 10.115.64.33] PHP Warning:  Invalid argument supplied for foreach() in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 23, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=4946761607f5271667c37607e35646f636f55737f646f5d61627f5566757f6e427569637f5271667f2c357165646f636f556761607f666f5271667c3e3f556279616c657d62303232302e356c636030374d29303d24336f5271667f2c36313279616c657d627f66667c3e356c636f556c657d627f666f5271646f636f556279616f5d61627f5f666e356e42756963737f64667f2c35716566757f657d627f666f5271646f636f556279616c636f5271667c3e3565646f636f556274616f5d61627f57607e3f6e42756963737f647f666f55716566757c356279616c657d627461636f5271667f232e35646f636f55621
+[Fri Oct 19 14:31:48 2012] [error] [client 10.115.64.33] PHP Warning:  scandir(/data/www/monsilocal.reseau/html/agilis_V2/public/files/pj/ram/14042-11-P0014) [<a href='function.scandir'>function.scandir</a>]: failed to open dir: No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=289556761607f5271667c327f57607e35646f636f756963737f646f5d616f2c35716566757f6e426f556761607f5271667f5271667c3e35646f636279616c657d627f66643034313e356c636f55313030305d21313d22327f666f5271667f2c34636f556279616c657d6f666f5271667c3e356c6f556279616c657d6271627f5f666e35646f6342756963737f646f5d667f2c35716566757f6e6c657d627f666f52716e35646f636f55627961627461636f5271667c3f57607e35646f636f556963737f646f5d61627f55716566757f6e42756279616c657d627f666461636f5271667f2c35132e35646f636f55627
+[Fri Oct 19 14:31:48 2012] [error] [client 10.115.64.33] PHP Warning:  scandir() [<a href='function.scandir'>function.scandir</a>]: (errno 2): No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=289556761607f5271667c327f57607e35646f636f756963737f646f5d616f2c35716566757f6e426f556761607f5271667f5271667c3e35646f636279616c657d627f66643034313e356c636f55313030305d21313d22327f666f5271667f2c34636f556279616c657d6f666f5271667c3e356c6f556279616c657d6271627f5f666e35646f6342756963737f646f5d667f2c35716566757f6e6c657d627f666f52716e35646f636f55627961627461636f5271667c3f57607e35646f636f556963737f646f5d61627f55716566757f6e42756279616c657d627f666461636f5271667f2c35132e35646f636f55627
+[Fri Oct 19 14:31:48 2012] [error] [client 10.115.64.33] PHP Warning:  Invalid argument supplied for foreach() in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 23, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=289556761607f5271667c327f57607e35646f636f756963737f646f5d616f2c35716566757f6e426f556761607f5271667f5271667c3e35646f636279616c657d627f66643034313e356c636f55313030305d21313d22327f666f5271667f2c34636f556279616c657d6f666f5271667c3e356c6f556279616c657d6271627f5f666e35646f6342756963737f646f5d667f2c35716566757f6e6c657d627f666f52716e35646f636f55627961627461636f5271667c3f57607e35646f636f556963737f646f5d61627f55716566757f6e42756279616c657d627f666461636f5271667f2c35132e35646f636f55627
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121018232023.ok.csv': No such file or directory
+[Fri Oct 19 14:34:36 2012] [error] [client 10.115.64.93] File does not exist: /data/www/monsilocal.reseau/html/ApplicationsPC-USR, referer: http://monsilocal.reseau.francetelecom.fr/Php/Formulaire.php?FormulaireCode=FO-PC-004&FormulaireLibelle=PC_CollectifDossier&FormulaireChampCle=49123-12-M0028
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121018235031.ok.csv': No such file or directory
+[Fri Oct 19 14:37:19 2012] [error] [client 10.197.4.1] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 24 bytes) in /data/www/monsilocal.reseau/html/Classes/ClasseMappingSGBD.php on line 68, referer: http://agilis.sso.francetelecom.fr/Html/Session.html
+rm: cannot remove `/data/www/monsilocal.reseau/html/../cft/IA2/flag/in/f_IA2AG21_vol_cable.20121018233024.ok.csv': No such file or directory
+[Fri Oct 19 14:42:03 2012] [error] [client 10.197.4.1] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 304, referer: http://agilis.sso.francetelecom.fr/Html/Session.html
+[Fri Oct 19 15:00:02 2012] [error] [client 10.115.64.33] PHP Warning:  scandir(/data/www/monsilocal.reseau/html/agilis_V2/public/files/pj/ram/12164-10-C1006) [<a href='function.scandir'>function.scandir</a>]: failed to open dir: No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=857f556761607f5271667c31627f57607e35646f636e42756963737f646f5d61667f2c35716566757f646f636f556761607f52727f666f5271667c3e356c636f556279616c657d60313d24363132313e3561667f2c36303031334d29616c657d627f666f5271667c3e356c636f556279616c657d627f666f527f666e35646f636f55627963737f646f5d61627f5c35716566757f6e4275657d627f666f5271667f25646f636f556279616c627461636f5271667c3e3f57607e35646f636f55656963737f646f5d6162766f55716566757f6e427c356279616c657d627f65627461636f5271667f2132e35646f636f5
+[Fri Oct 19 15:00:02 2012] [error] [client 10.115.64.33] PHP Warning:  scandir() [<a href='function.scandir'>function.scandir</a>]: (errno 2): No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=857f556761607f5271667c31627f57607e35646f636e42756963737f646f5d61667f2c35716566757f646f636f556761607f52727f666f5271667c3e356c636f556279616c657d60313d24363132313e3561667f2c36303031334d29616c657d627f666f5271667c3e356c636f556279616c657d627f666f527f666e35646f636f55627963737f646f5d61627f5c35716566757f6e4275657d627f666f5271667f25646f636f556279616c627461636f5271667c3e3f57607e35646f636f55656963737f646f5d6162766f55716566757f6e427c356279616c657d627f65627461636f5271667f2132e35646f636f5
+[Fri Oct 19 15:00:02 2012] [error] [client 10.115.64.33] PHP Warning:  Invalid argument supplied for foreach() in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 23, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=857f556761607f5271667c31627f57607e35646f636e42756963737f646f5d61667f2c35716566757f646f636f556761607f52727f666f5271667c3e356c636f556279616c657d60313d24363132313e3561667f2c36303031334d29616c657d627f666f5271667c3e356c636f556279616c657d627f666f527f666e35646f636f55627963737f646f5d61627f5c35716566757f6e4275657d627f666f5271667f25646f636f556279616c627461636f5271667c3e3f57607e35646f636f55656963737f646f5d6162766f55716566757f6e427c356279616c657d627f65627461636f5271667f2132e35646f636f5
+[Fri Oct 19 15:12:39 2012] [error] [client 10.197.4.2] PHP Notice:  Undefined index:  var_page_code in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Page.php on line 13, referer: http://monsilocal-pprod.reseau.francetelecom.fr/agilis_V2/public/index.php?variables=629363f6768657e396c3d6c3e396f2c3230343034363f6768657e3822e3d6f2c32
+[Fri Oct 19 15:21:26 2012] [error] [client 10.197.4.2] PHP Notice:  Undefined index:  var_page_code in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Page.php on line 13, referer: http://monsilocal-pprod.reseau.francetelecom.fr/agilis_V2/public/index.php?variables=629363f6768657e396c3d6c3e396f2c3230343034363f6768657e3822e3d6f2c32
+[Fri Oct 19 15:23:18 2012] [error] [client 10.197.4.2] PHP Notice:  Undefined index:  var_page_code in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Page.php on line 13, referer: http://monsilocal-pprod.reseau.francetelecom.fr/agilis_V2/public/index.php?variables=629363f6768657e396c3d6c3e396f2c3230343034363f6768657e3822e3d6f2c32
+[Fri Oct 19 15:24:09 2012] [error] [client 10.197.4.4] PHP Notice:  Undefined index:  var_page_code in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Page.php on line 13, referer: http://monsilocal-pprod.reseau.francetelecom.fr/agilis_V2/public/index.php?variables=629363f6768657e396c3d6c3e396f2c3230343034363f6768657e3822e3d6f2c32
+[Fri Oct 19 15:24:46 2012] [error] [client 10.197.4.4] PHP Notice:  Undefined index:  var_page_code in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Page.php on line 13, referer: http://monsilocal-pprod.reseau.francetelecom.fr/agilis_V2/public/index.php?variables=629363f6768657e396c3d6c3e396f2c3230343034363f6768657e3822e3d6f2c32
+[Fri Oct 19 15:25:57 2012] [error] [client 10.115.64.13] PHP Notice:  Undefined property:  Agilis_Model_Carte::$carteCode in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Carte.php on line 41, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/page/afficher?variables=2751607f5271667c35646f636f55676474747f57607e3c35647271636f51607f5271667f25646f636f55676524e3
+[Fri Oct 19 15:27:17 2012] [error] [client 10.197.4.4] PHP Notice:  Undefined index:  var_page_code in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Page.php on line 13, referer: http://monsilocal-pprod.reseau.francetelecom.fr/agilis_V2/public/index.php?variables=629363f6768657e396c3d6c3e396f2c3230343034363f6768657e3822e3d6f2c32
+[Fri Oct 19 15:42:54 2012] [error] [client 10.115.64.33] PHP Warning:  scandir(/data/www/monsilocal.reseau/html/agilis_V2/public/files/pj/ram/14147-07-P0005) [<a href='function.scandir'>function.scandir</a>]: failed to open dir: No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=2547f5271667c336f55676160607e35646f6f5d61627f576963737f6466757f6e42757f2c35716561607f5271666f636f556761667c3e3564627f666f527279616c657d356c636f5567343134313e305d27303d2f2c35303030666f527166716c657d627f636f55627961667c3e356c627f666f527279616c657d646f636f55627f5f666e357f646f5d616e4275696373716566757f6271667f2c357d627f666f556279616c6535646f636f5f5271667c3e55627461636e35646f636f61627f576073737f646f5d7f6e4275696f5571656675657d627f666c356279616c6f5271667f2f55627461632e35646f63613
+[Fri Oct 19 15:42:54 2012] [error] [client 10.115.64.33] PHP Warning:  scandir() [<a href='function.scandir'>function.scandir</a>]: (errno 2): No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=2547f5271667c336f55676160607e35646f6f5d61627f576963737f6466757f6e42757f2c35716561607f5271666f636f556761667c3e3564627f666f527279616c657d356c636f5567343134313e305d27303d2f2c35303030666f527166716c657d627f636f55627961667c3e356c627f666f527279616c657d646f636f55627f5f666e357f646f5d616e4275696373716566757f6271667f2c357d627f666f556279616c6535646f636f5f5271667c3e55627461636e35646f636f61627f576073737f646f5d7f6e4275696f5571656675657d627f666c356279616c6f5271667f2f55627461632e35646f63613
+[Fri Oct 19 15:42:54 2012] [error] [client 10.115.64.33] PHP Warning:  Invalid argument supplied for foreach() in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 23, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=2547f5271667c336f55676160607e35646f6f5d61627f576963737f6466757f6e42757f2c35716561607f5271666f636f556761667c3e3564627f666f527279616c657d356c636f5567343134313e305d27303d2f2c35303030666f527166716c657d627f636f55627961667c3e356c627f666f527279616c657d646f636f55627f5f666e357f646f5d616e4275696373716566757f6271667f2c357d627f666f556279616c6535646f636f5f5271667c3e55627461636e35646f636f61627f576073737f646f5d7f6e4275696f5571656675657d627f666c356279616c6f5271667f2f55627461632e35646f63613
+[Fri Oct 19 15:47:07 2012] [error] [client 10.115.64.93] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PI/PiecesJointes/Devis/12-76-0197/
+[Fri Oct 19 15:47:08 2012] [error] [client 10.115.64.93] Directory index forbidden by Options directive: /data/www/monsilocal.reseau/html/Applications/PI/PiecesJointes/Plans_Courriers/12-76-0197/
+sendmail: fatal: No recipient addresses found in message header
+[Fri Oct 19 15:57:01 2012] [error] [client 10.115.64.33] PHP Warning:  scandir(/data/www/monsilocal.reseau/html/agilis_V2/public/files/pj/ram/14009-11-P0009) [<a href='function.scandir'>function.scandir</a>]: failed to open dir: No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=74756761607f5271667c3f57607e35646f636f5963737f646f5d616275716566757f6e42756761607f5271667f2c367c3e35646f636f556c657d627f666f52716e356c636f556279616d21313d293030343131667f2c3930303030516c657d627f666f527c3e356c636f556279657d627f666f527166746f636f556279616c6f5d61627f5f666e356f6e42756963737f6461667f2c3571656675716c657d627f666f527e35646f636f556279627461636f5271667c37607e35646f636f5563737f646f5d61627f516566757f6e427569616c657d627f666f557f5271667f2c356279646f636f55627461636132e356
+[Fri Oct 19 15:57:01 2012] [error] [client 10.115.64.33] PHP Warning:  scandir() [<a href='function.scandir'>function.scandir</a>]: (errno 2): No such file or directory in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 22, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=74756761607f5271667c3f57607e35646f636f5963737f646f5d616275716566757f6e42756761607f5271667f2c367c3e35646f636f556c657d627f666f52716e356c636f556279616d21313d293030343131667f2c3930303030516c657d627f666f527c3e356c636f556279657d627f666f527166746f636f556279616c6f5d61627f5f666e356f6e42756963737f6461667f2c3571656675716c657d627f666f527e35646f636f556279627461636f5271667c37607e35646f636f5563737f646f5d61627f516566757f6e427569616c657d627f666f557f5271667f2c356279646f636f55627461636132e356
+[Fri Oct 19 15:57:01 2012] [error] [client 10.115.64.33] PHP Warning:  Invalid argument supplied for foreach() in /data/www/monsilocal.reseau/html/agilis_V2/application/models/Fichier.php on line 23, referer: http://monsilocal.reseau.francetelecom.fr/agilis_V2/public/formulaire/afficher?variables=74756761607f5271667c3f57607e35646f636f5963737f646f5d616275716566757f6e42756761607f5271667f2c367c3e35646f636f556c657d627f666f52716e356c636f556279616d21313d293030343131667f2c3930303030516c657d627f666f527c3e356c636f556279657d627f666f527166746f636f556279616c6f5d61627f5f666e356f6e42756963737f6461667f2c3571656675716c657d627f666f527e35646f636f556279627461636f5271667c37607e35646f636f5563737f646f5d61627f516566757f6e427569616c657d627f666f557f5271667f2c356279646f636f55627461636132e356
+rm: cannot remove `Files/Themis/EchangesLb.csv': No such file or directory
+[Fri Oct 19 16:03:35 2012] [error] [client 10.197.4.2] File does not exist: /data/www/monsilocal.reseau/html/Applications/PI/PiecesJointes/Plans_Courriers/12-27-0134
+[Fri Oct 19 16:14:50 2012] [error] [client 10.115.64.33] File does not exist: /data/www/monsilocal.reseau/html/Applications/SI/SI_Initialisation.js, referer: http://monsilocal.reseau.francetelecom.fr/Php/Script.php?Source=/Applications/SI/SI_Initialisation.js
+[Fri Oct 19 16:29:57 2012] [error] [client 10.115.64.5] PHP Fatal error:  Call to a member function GetDonnee() on a non-object in /data/www/monsilocal.reseau/html/Classes/ClasseListe.php on line 107
+[Fri Oct 19 16:41:10 2012] [notice] child pid 1833 exit signal Segmentation fault (11)
+[Fri Oct 19 16:41:11 2012] [notice] child pid 2316 exit signal Segmentation fault (11)
+[Fri Oct 19 16:41:17 2012] [notice] child pid 2318 exit signal Segmentation fault (11)
+[Fri Oct 19 16:41:17 2012] [notice] child pid 3283 exit signal Segmentation fault (11)
+[Fri Oct 19 16:41:17 2012] [notice] child pid 4591 exit signal Segmentation fault (11)
+[Fri Oct 19 16:41:17 2012] [notice] child pid 6886 exit signal Segmentation fault (11)
+[Fri Oct 19 16:41:32 2012] [notice] child pid 4590 exit signal Segmentation fault (11)
+[Fri Oct 19 16:41:33 2012] [notice] child pid 2315 exit signal Segmentation fault (11)
+[Fri Oct 19 16:41:33 2012] [notice] child pid 4075 exit signal Segmentation fault (11)
+[Fri Oct 19 16:41:33 2012] [notice] child pid 6890 exit signal Segmentation fault (11)
+[Fri Oct 19 16:43:27 2012] [notice] child pid 6892 exit signal Segmentation fault (11)
+[Fri Oct 19 16:43:27 2012] [notice] child pid 6894 exit signal Segmentation fault (11)
+[Fri Oct 19 16:45:54 2012] [notice] child pid 7035 exit signal Segmentation fault (11)
+[Fri Oct 19 16:46:56 2012] [notice] child pid 7036 exit signal Segmentation fault (11)
+[Fri Oct 19 16:48:36 2012] [notice] child pid 7265 exit signal Segmentation fault (11)
+[Fri Oct 19 16:48:37 2012] [notice] child pid 4592 exit signal Segmentation fault (11)
+[Fri Oct 19 16:48:37 2012] [notice] child pid 6893 exit signal Segmentation fault (11)
+[Fri Oct 19 16:48:37 2012] [notice] child pid 6895 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:14 2012] [notice] child pid 7472 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:15 2012] [notice] child pid 7330 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:15 2012] [notice] child pid 7470 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:15 2012] [notice] child pid 7523 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:15 2012] [notice] child pid 7526 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:16 2012] [notice] child pid 7276 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:42 2012] [notice] child pid 6889 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:42 2012] [notice] child pid 7529 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:42 2012] [notice] child pid 7531 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:43 2012] [notice] child pid 7334 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:43 2012] [notice] child pid 7471 exit signal Segmentation fault (11)
+[Fri Oct 19 16:49:43 2012] [notice] child pid 7534 exit signal Segmentation fault (11)
